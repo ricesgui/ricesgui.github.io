@@ -262,6 +262,182 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/15/动态使用绑定图片源展示base64格式的图片/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaogui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/15/动态使用绑定图片源展示base64格式的图片/" itemprop="url">动态使用绑定图片源展示base64格式的图片</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T22:50:11+08:00">
+                2018-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/11/15/动态使用绑定图片源展示base64格式的图片/" class="leancloud_visitors" data-flag-title="动态使用绑定图片源展示base64格式的图片">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>前言</h1>
+
+<p>用户上传图片，利用后端返回的数据实现图片展示，<br>实现效果：</p>
+<p><img src="https://i.imgur.com/9uMFvK6.png" alt=""><br><img src="https://i.imgur.com/bUVawwe.png" alt=""></p>
+<p>实现代码:</p>
+<pre><code>&lt;el-form-item label=&quot;印章:&quot; prop=&quot;imgFile&quot;&gt;
+   &lt;el-upload
+     class=&quot;upload-demo&quot;
+      drag
+      v-model=&quot;addForm.imgFile&quot;
+      action=&quot;&quot;
+      :before-upload=&quot;handleBeforeUpload&quot;
+      :http-request=&quot;handleUpload&quot;         
+      accept=&quot;.jpg,.png&quot;
+      multiple&gt;
+      &lt;i class=&quot;el-icon-upload&quot;&gt;&lt;/i&gt;
+      &lt;div class=&quot;el-upload__text&quot;&gt;将文件拖到此处，或&lt;em&gt;点击上传&lt;/em&gt;&lt;/div&gt;
+      &lt;div class=&quot;el-upload__tip&quot; slot=&quot;tip&quot;&gt;只能上传jpg/png文件，且不超过2kb&lt;/div&gt;
+    &lt;/el-upload&gt;         
+  &lt;/el-form-item&gt;
+
+ &lt;div v-if=&quot;item.prop === &apos;images&apos; &amp;&amp; scope.row[item.prop] !== null&quot;&gt;
+    &lt;img :src=&quot;&apos;data:image/jpg;base64,&apos; + scope.row[item.prop]&quot; alt=&quot;印章&quot;&gt;              
+ &lt;/div&gt;
+ &lt;span v-else&gt;{{ scope.row[item.prop] }}&lt;/span&gt;
+
+&lt;script&gt;
+data () {
+    return{
+    addForm: {
+        imgFile: &apos;&apos;
+    }
+},
+
+handleBeforeUpload (file) {
+      if (file.size &gt; 2 * 1024) {
+        this.$message({
+          type: &apos;warning&apos;,
+          message: &apos;选择文件过大啦~~&apos;
+        })
+        return false
+      }
+    },
+handleUpload (data) {
+  this.addForm.imgFile = data.file
+}
+&lt;/script&gt;
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/06/运行项目时，报错项目路径Commandfailed/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1732,151 +1908,6 @@ export default {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/18/Vue使用图片放大预览插件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xiaogui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/18/Vue使用图片放大预览插件/" itemprop="url">Vue使用图片放大预览插件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-18T20:02:31+08:00">
-                2018-10-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/10/18/Vue使用图片放大预览插件/" class="leancloud_visitors" data-flag-title="Vue使用图片放大预览插件">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1>vue项目使用vue-photo-preview插件实现点击图片放大预览和移动</h1><br>    介绍：该插件具有预览方法图片，全屏看图片，上一张下一张的功能<br><h1>1.运行</h1><br>    npm install vue-photo-preview<br><br><h1>2.项目main.js引用</h1><br><img src="https://i.imgur.com/crKdUuv.png" alt=""><br><br>    // 引入图片缩放插件<br>    import preview from ‘vue-photo-preview’<br>    import ‘vue-photo-preview/dist/skin.css’<br><h1>3.在你需要用到的vue页面的html部分引用添加preview属性即可</h1>
-
-<p><img src="https://i.imgur.com/iqcYsVE.png" alt=""></p>
-<pre><code>非常重要，需要在函数初始化时加入
-mounted(){
-    this.$previewRefresh()
-}
-</code></pre><p>在这里是运用了数组，支持后台多图片返回，建议图片使用懒加载方式</p>
-<p><img src="https://i.imgur.com/LxPsE8o.png" alt=""></p>
-<p>这个函数可以在需要有自适应的时候使用</p>
-<p><img src="https://i.imgur.com/Mnafr7r.png" alt=""></p>
-<p>由于我的图片是在elementui框架的对话框里面引用到的，一开始发现放大后图片在对话框下面显示，研究发现对话框的z-index属性一般为3000，所以我们只需要重写一下css属性就可以啦<br>要注意这里属性重写建议写在index.css下面，不然可能不起作用哦。<br><img src="https://i.imgur.com/BQwbsqi.png" alt=""></p>
-<h1>4.效果预览</h1>
-
-<p><img src="https://i.imgur.com/aCAHGdH.gif" alt=""></p>
-<p>在这里要重点提一个问题，就是在引用的时候，要注意你的引用步骤，当该效果没有的时候可以考虑一下是不是渲染出了问题或者在该引用组件已经渲染后再调用$previewRefresh()函数时会因为数组长度为0，没有效果。解决方法就是watch()一下你打开的对话框再进行图片渲染。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1927,7 +1958,7 @@ mounted(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
