@@ -262,6 +262,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/17/blog12/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaogui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/17/blog12/" itemprop="url">前端面试题小结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-17T21:28:30+08:00">
+                2018-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/07/17/blog12/" class="leancloud_visitors" data-flag-title="前端面试题小结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+
+<h3><li>js 字符串操作函数</li></h3>
+
+<p>concat() – 将两个或多个字符的文本组合起来，返回一个新的字符串。</p>
+<p>join() 方法用于把数组中的所有元素放入一个字符串。</p>
+<p>indexOf() – 返回字符串中一个子串第一处出现的索引。如果没有匹配项，返回 -1 。</p>
+<p>charAt() – 返回指定位置的字符。</p>
+<p>lastIndexOf() – 返回字符串中一个子串最后一处出现的索引，如果没有匹配项，返回 -1 。</p>
+<p>match() – 检查一个字符串是否匹配一个正则表达式。</p>
+<p>substr() 函数 – 返回从string的startPos位置，长度为length的字符串</p>
+<p>substring() – 返回字符串的一个子串。传入参数是起始位置和结束位置。</p>
+<font color="red">slice() – 提取字符串的一部分，并返回一个新字符串。</font>
+
+<p>replace() – 用来查找匹配一个正则表达式的字符串，然后使用新字符串代替匹配的字符串。</p>
+<p>search() – 执行一个正则表达式匹配查找。如果查找成功，返回字符串中匹配的索引值。否则返回 -1 。</p>
+<font color="red">split() – 通过将字符串划分成子串，将一个字符串做成一个字符串数组。</font>
+
+<p>length – 返回字符串的长度，所谓字符串的长度是指其包含的字符的个数。</p>
+<p>toLowerCase() – 将整个字符串转成小写字母。</p>
+<p>toUpperCase() – 将整个字符串转成大写字母。</p>
+<h3><li>js中==和===区别</li></h3><br>简单来说： == 代表相同， ===代表严格相同, 为啥这么说呢，<br><br>这么理解： 当进行双等号比较时候：先检查两个操作数数据类型，如果相同， 则进行===比较， 如果不同， 则愿意为你进行一次类型转换， 转换成相同类型后再进行比较， 而===比较时， 如果类型不同，直接就是false.<br><br>操作数1 == 操作数2，  操作数1 === 操作数2<br><br>比较过程：<br><br>　　双等号==：<br><br>　　（1）如果两个值类型相同，再进行三个等号(===)的比较<br><br>　　（2）如果两个值类型不同，也有可能相等，需根据以下规则进行类型转换在比较：<br><br>　　　　1）如果一个是null，一个是undefined，那么相等<br><br>　　　　2）如果一个是字符串，一个是数值，把字符串转换成数值之后再进行比较<br><br>　　三等号===:<br><br>　　（1）如果类型不同，就一定不相等<br><br>　　（2）如果两个都是数值，并且是同一个值，那么相等；如果其中至少一个是NaN，那么不相等。（判断一个值是否是NaN，只能使用isNaN()来判断）<br><br>　　（3）如果两个都是字符串，每个位置的字符都一样，那么相等，否则不相等。<br><br>　　（4）如果两个值都是true，或是false，那么相等<br><br>　　（5）如果两个值都引用同一个对象或是函数，那么相等，否则不相等<br><br>　　（6）如果两个值都是null，或是undefined，那么相等<br><br> <h3><li>js中push(),pop(),unshift(),shift()的用法小结</li></h3><br>1)、这两组同为对数组的操作，并且会改变数组的本身的长度及内容。<br><br>　　不同的是 push()、pop() 是从数组的尾部进行增减，unshift()、shift() 是从数组的头部进行增减。<br>　例子:var arr = [1, 2];<br><br>2)、push()和unshift()<br><br>　　向数组的 尾部/头部 添加若干元素，并返回 数组的 新长度；<br><br>　　arr.push(3,4)；         //返回 arr 的新长度 4<br><br>　　arr ;                        // arr = [1,2,3,4];<br><br>　　arr.unshift(0,0.5);    // 返回 arr 的新长度 6<br><br>　　arr ;                       // arr = [0,0.5,1,2,3,4];<br><br>3)、pop()和shift()<br><br>　　从数组的 尾部/头部 删除1个元素(删且只删除1个)，并返回 被删除的元素；空数组是继续删除，不报错，但返回undefined；<br><br>　　arr.pop();　　　　　　//返回 4；<br><br>　　arr ;　　　　　　　　  // arr = [0,0.5,1,2,3];<br><br>　　arr.pop();　　　　　　//返回 3；<br><br>　　arr ;　　　　　　　　 // arr = [0,0.5,1,2];<br><br>　　arr.shift()；　　　　  // 返回 0 ；<br><br>　　arr ;　　　　　　　　// arr = [0.5,1,2]<br><br>　　PS: pop()和shift() 不接受传参，即使传了参数也没什么卵用~~；<br><br>　　arr.pop(3) ;           // 返回 2；永远返回最后一个；<br><br>　　arr ; 　　　　　　　// arr = [0.5,1];<br><br>　　arr.shift(1);　　　　// 返回 0.5; 永远返回第一个；<br><br>　　arr ;　　　　　　　　// arr = [1];<br><br>　　arr.pop() ; 　　　　// 返回 1；<br><br>　　arr ;　　　　　　　　// arr = [];<br><br>　　arr.shift()　　　　　// 返回 undefined；<br><br>　　arr ;　　　　　　　　// arr = [];<br><br><h3><li>link和@import的区别</li></h3>
+
+<p>link属于html标签，而@import是css提供的。</p>
+<p>页面被加载时，link会同时被加载，而@import引用的css会等到页面加载结束后加载。</p>
+<p>link是html标签，因此没有兼容性，而@import只有IE5以上才能识别。</p>
+<p>link方式样式的权重高于@import的。</p>
+<p>link支持使用js控制DOM改变样式，@import不支持。‘</p>
+<p></p><h3><li>编写一个方法 去掉一个数组的重复元素</li></h3><br>方法一：<p></p>
+<p>var arr = [0,2,3,4,4,0,2];<br>var obj = {};<br>var tmp = [];<br>for(var i = 0 ;i&lt; arr.length;i++){<br>   if( !obj[arr[i]] ){<br>      obj[arr[i]] = 1;<br>      tmp.push(arr[i]);<br>   }<br>}<br>console.log(tmp);<br>结果如下： [0, 2, 3, 4]</p>
+<p> 方法二：</p>
+<p>var arr = [2,3,4,4,5,2,3,6],<br>   arr2 = [];<br>for(var i = 0;i&lt; arr.length;i++){<br>    if(arr2.indexOf(arr[i]) &lt; 0){<br>        arr2.push(arr[i]);<br>    }<br>}<br>console.log(arr2);<br>结果为：[2, 3, 4, 5, 6]</p>
+<p> 方法三：</p>
+<p>var arr = [2,3,4,4,5,2,3,6];<br>var arr2 = arr.filter(function(element,index,self){<br>return self.indexOf(element) === index;<br>});<br>console.log(arr2);</p>
+<p>结果为：[2, 3, 4, 5, 6]</p>
+</ol>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/blog11/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1541,136 +1705,6 @@ float:right;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/10/chapther1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xiaogui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/10/chapther1/" itemprop="url">chapther1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-10T21:10:30+08:00">
-                2018-05-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/05/10/chapther1/" class="leancloud_visitors" data-flag-title="chapther1">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近好像是瓶颈？<br><br><br>五一长假似乎过的太舒适了，回学校后开始有点小焦虑<br><br>今天晚上终于开始写我的hexo博客，不显得那么空旷了<br><br>以后能够继续改进。yeah！<br>要努力赚钱养家嘿。做一个积极向上的程序员！</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1721,7 +1755,7 @@ float:right;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
