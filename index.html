@@ -262,6 +262,359 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/Elementui-ui表格实现双击编辑，并符合不同输入需求/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaogui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/13/Elementui-ui表格实现双击编辑，并符合不同输入需求/" itemprop="url">Elementui-ui表格实现双击编辑，并符合不同输入需求</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-13T19:31:39+08:00">
+                2018-12-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/12/13/Elementui-ui表格实现双击编辑，并符合不同输入需求/" class="leancloud_visitors" data-flag-title="Elementui-ui表格实现双击编辑，并符合不同输入需求">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p></p><h1>前言</h1><br>最近项目在做节假日管理，需要有一个操作就是用户双击表格里的某一行，可以修改该行，并且有输入框和选择框。<p></p>
+<p>实现效果：<br><img src="https://i.imgur.com/zkU82Cv.png" alt=""></p>
+<p>上代码。</p>
+<pre><code>&lt;el-table 
+    v-loading=&quot;isLoading&quot; element-loading-text=&quot;拼命加载中...&quot;
+    ref=&quot;tableRef&quot;
+    :data=&quot;tableData&quot;
+    :max-height=&quot;maxHeight&quot;
+    border
+    @row-click=&quot;handleRowClick&quot;
+    @row-dblclick=&quot;handleRowDblclick&quot;
+    stripe&gt;
+    &lt;el-table-column
+      v-for=&quot;item in tableColData&quot;
+      :key=&quot;item.prop&quot;
+      :prop=&quot;item.prop&quot;
+      :label=&quot;item.label&quot;
+      :sortable=&quot;item.sortable&quot;
+      :width=&quot;item.width&quot;
+      :align=&quot;item.align&quot;&gt;  
+        &lt;!--主要实现判断--&gt;
+      &lt;template slot-scope=&quot;scope&quot;&gt;
+        &lt;template v-if=&quot;addForm.weekName === scope.row.weekName&quot;&gt;
+          &lt;el-input type=&quot;text&quot; v-model=&quot;scope.row[item.prop]&quot; v-if=&quot;item.prop !== &apos;workType&apos; &amp;&amp; item.prop !== &apos;weekName&apos;&quot; @blur=&quot;handleBlur($event, scope.row)&quot;&gt;&lt;/el-input&gt;
+          &lt;el-select v-else-if=&quot;item.prop === &apos;workType&apos;&quot; v-model=&quot;scope.row[item.prop]&quot;&gt;
+            &lt;el-option
+              v-for=&quot;item in options&quot;
+              :key=&quot;item.value&quot;
+              :label=&quot;item.label&quot;
+              :value=&quot;item.value&quot;&gt;
+            &lt;/el-option&gt;
+          &lt;/el-select&gt;
+          &lt;span v-else&gt;{{ scope.row[item.prop] }}&lt;/span&gt;
+        &lt;/template&gt;
+        &lt;template v-else&gt;
+          &lt;span v-if=&quot;item.prop === &apos;weekName&apos;&quot;&gt;{{ scope.row[item.prop]}}&lt;/span&gt;
+          &lt;span v-else-if=&quot;item.prop === &apos;workType&apos;&quot;&gt;{{ scope.row.workType === 0 ? '工作日' : '节假日' }}&lt;/span&gt;
+          &lt;span v-else&gt;{{ scope.row[item.prop] }}&lt;/span&gt;
+        &lt;/template&gt;
+      &lt;/template&gt;
+    &lt;/el-table-column&gt;
+    &lt;el-table-column
+      label=&quot;操作&quot;
+      width=&quot;60px&quot;
+      align=&quot;center&quot;&gt;
+      &lt;template slot-scope=&quot;scope&quot;&gt;
+        &lt;el-button type=&quot;primary&quot; plain size=&quot;mini&quot; icon=&quot;iconfont icon-bianji&quot; circle title=&quot;修改&quot; @click.stop=&quot;handleEdit($event, scope.row, scope.$index)&quot;&gt;&lt;/el-button&gt;
+      &lt;/template&gt;
+    &lt;/el-table-column&gt;        
+  &lt;/el-table&gt;
+
+    &lt;script&gt;
+    methods: {
+        handleRowClick (row) {
+          this.addForm = {}
+          // this.handleBlur(row)
+        },
+        handleRowDblclick (row, event) {
+          event.stopPropagation()
+          event.preventDefault()
+          this.addForm = Utils.deepCopy(row)
+        },
+        // 调用接口
+        handleBlur (e, row) {
+        // 调用完成后将this.addForm = {}
+        }
+    }    
+    &lt;/script&gt;
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/elementui实现页面跳转第一次没有监听到参数，第二次才有的解决方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaogui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/13/elementui实现页面跳转第一次没有监听到参数，第二次才有的解决方案/" itemprop="url">elementui实现页面跳转第一次没有监听到参数，第二次才有的解决方案</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-13T19:31:18+08:00">
+                2018-12-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/12/13/elementui实现页面跳转第一次没有监听到参数，第二次才有的解决方案/" class="leancloud_visitors" data-flag-title="elementui实现页面跳转第一次没有监听到参数，第二次才有的解决方案">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p></p><h1>前言</h1><br>最近做的一个页面跳转碰到一个问题就是我点击跳转的第一次没有传到值，再点击第二次的时候才有值，很是奇怪，研究了一下watch的一些相关属性。<p></p>
+<h2>immediate属性</h2><br>发现watch的一个特点是最初绑定的时候不执行改变即第一次直接赋值不会监听到，这里需要用到immediate属性，默认值为false,我们需要这样写immediate：true,即立刻执行。<br><h2>deep属性</h2><br>watch的另一个属性是deep,默认值为false,代表是否深度监听，设置deep:true,意思就是深入观察，监听器会一层层的往下遍历，给对象的所有属性都加上这个监听器，但是这样开销性能就会非常大了，任何修改对象里面的一个属性都会触发这个监听器里的handler。优化方法就是像我下面的代码一样使用字符串形式监听。<br><h2>注销watch</h2><br>为什么要注销 watch？因为我们的组件是经常要被销毁的，比如我们跳一个路由，从一个页面跳到另外一个页面，那么原来的页面的 watch 其实就没用了，这时候我们应该注销掉原来页面的 watch 的，不然的话可能会导致内置溢出。好在我们平时 watch 都是写在组件的选项中的，他会随着组件的销毁而销毁。<br><br>    const app = new Vue({<br>      template: ‘<div id="root"></div>‘,<br>      data: {<br>        text: 0<br>      },<br>      watch: {<br>        text(newVal, oldVal){<br>          console.log(<code>${newVal} : ${oldVal}</code>);<br>        }<br>      }<br>    });<br>但是，如果我们使用下面这样的方式写 watch，那么就要手动注销了，这种注销其实也很简单<br><br>    const unWatch = app.$watch(‘text’, (newVal, oldVal) =&gt; {<br>      console.log(<code>${newVal} : ${oldVal}</code>);<br>    })<br><br>    unWatch(); // 手动注销watch<br>由于我这个currentNavigation是写在store.js里的,所以在页面时需要计算赋值给它。<br><br><h2>实现代码：</h2>
+
+<p>store.js</p>
+<pre><code>currentNavigation: {            // 当前页面信息
+  name: &apos;首页&apos;,
+  id: &apos;home&apos;,
+  componentName: &apos;appHome&apos;
+},
+</code></pre><p>页面.vue</p>
+<pre><code>computed: {
+    currentNavigation () {
+      return this.$store.state.currentNavigation
+    }
+  },
+
+watch: {
+    &apos;currentNavigation.param&apos;: {
+      immediate: true,
+      deep: true,
+      handler (val, oldVal) {
+        if (!Utils.isEmptyData(val) &amp;&amp; oldVal !== val) {
+          this.handleRouteParam() // 处理路由跳转后的页面渲染数据
+        }
+      }
+    }
+}
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/23/监听表单里的数据变化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1613,345 +1966,6 @@ export default {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/24/ElementUI多选框，选中时传id/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xiaogui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/24/ElementUI多选框，选中时传id/" itemprop="url">ElementUI多选框，选中时传id</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-24T17:33:51+08:00">
-                2018-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/10/24/ElementUI多选框，选中时传id/" class="leancloud_visitors" data-flag-title="ElementUI多选框，选中时传id">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近需要完成一个这样的效果，</p>
-<p><img src="https://i.imgur.com/tidXikp.png" alt=""></p>
-<p>在多选框中选中后需要的不是label而是传相应的id，看了一下官方文档并没有这样的写法，之前select选择器的时候就有了label和value互相切换的操作，所以借鉴一下，没想到成了，代码如下。</p>
-<pre><code>&lt;template&gt;
-  &lt;div class=&quot;layerManegement&quot;&gt;
-  &lt;div class=&quot;headAdd&quot;&gt;选择图层添加或移除&lt;/div&gt;
-  &lt;hr&gt;
-  &lt;el-checkbox-group v-model=&quot;checkedOptions&quot; @change=&quot;handleCheckedCitiesChange&quot;&gt;
-    &lt;el-checkbox v-for=&quot;item in layers&quot; :label=&quot;item.value&quot; :key=&quot;item.value&quot;&gt;{{item.label}}&lt;/el-checkbox&gt;
-  &lt;/el-checkbox-group&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-&lt;script&gt;
-import Api from &apos;@/api/Index.js&apos;
-export default {
-  name: &apos;layerManegement&apos;,
-  data () {
-    return {
-      checkAll: false,
-      checkedOptions: [], 
-      layers: [{
-        value: &apos;&apos;,
-        label: &apos;&apos;
-      }],
-      isIndeterminate: true
-    }
-  },
-  mounted () {
-    this.findLayerList() // 调用接口
-  },
-  methods: {
-    handleCheckedCitiesChange (value) {
-      let checkedCount = value.length
-      this.checkAll = checkedCount === this.layers.length
-      this.isIndeterminate = checkedCount &gt; 0 &amp;&amp; checkedCount &lt; this.layers.length
-      this.$emit(&apos;handle-change-layer&apos;, this.checkedOptions)  //我这里需要将值传给父组件所以用了emit
-    },
-    findLayerList () {
-      Api.findLayerList()
-        .then(data =&gt; {
-          if (data.status === 0) { 
-            this.layers = [] 
-            this.layers = data.data                
-          } else {
-            this.$message({
-              type: &apos;warning&apos;,
-              message: &apos;获取数据失败&apos;
-            })
-          }
-        })
-        .catch(res =&gt; {
-          this.$message({
-            type: &apos;error&apos;,
-            message: &apos;请求数据失败&apos;
-          })
-        })
-    }
-  }
-}
-
-&lt;/script&gt;
-&lt;style lang=&quot;scss&quot;&gt;
-.layerManegement {
-  width: 100%;
-  .headAdd {
-    color: white;
-  }
-
-}
-
-&lt;/style&gt;
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/23/从零搭建一个react项目/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xiaogui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/23/从零搭建一个react项目/" itemprop="url">从零搭建一个react项目</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-23T19:34:43+08:00">
-                2018-10-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/10/23/从零搭建一个react项目/" class="leancloud_visitors" data-flag-title="从零搭建一个react项目">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p></p><h1>首先你的电脑需要安装nodejs</h1><br>具体步骤见文章<br><a href="https://ricesgui.github.io/2018/09/11/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAvue%E9%A1%B9%E7%9B%AE/" target="_blank" rel="noopener">https://ricesgui.github.io/2018/09/11/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAvue%E9%A1%B9%E7%9B%AE/</a><p></p>
-<p>然后就是搭建我们的主角react项目啦</p>
-<p></p><h1>运用create-react-app插件</h1><br>安装命令：<br>    npm install -g create-react-app<br>等几分钟得到下图结果就是安装成功，可以进行下一步操作。<br><img src="https://i.imgur.com/XAsbESK.png" alt=""><p></p>
-<p>进入到你想要放置项目的文件夹目录打开命令行界面，<br>安装命令：<br>    create-react–app react-demo</p>
-<p>如下图，即安装成功。<br><img src="https://i.imgur.com/uGZTlkl.png" alt=""><br><img src="https://i.imgur.com/iPg28RE.png" alt=""></p>
-<p>我们来看一下生成的文件目录<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/23/从零搭建一个react项目/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2002,7 +2016,7 @@ export default {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

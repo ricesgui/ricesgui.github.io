@@ -262,6 +262,316 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/blog5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaogui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/30/blog5/" itemprop="url">Markdown语法实现代码块</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T20:00:00+08:00">
+                2018-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/05/30/blog5/" class="leancloud_visitors" data-flag-title="Markdown语法实现代码块">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在写上一篇文章的时候，学会了如何使用md语法引进一块代码<br>，可以采用Tab键或空4格的方法即可实现。如下文一样需要用的代码块，在写代码块时需要注意的一点就是原来的内容要与代码之间空多一行才能显示。</p>
+<pre><code>&lt;html&gt;
+#include &lt;iostream&gt;
+using namespace std;
+</code></pre><p>你看可以随意书写你喜欢的代码块啦，多简单，开心。。。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/blog4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaogui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/30/blog4/" itemprop="url">如何实现div中的span居左居右对齐，且在同一行上</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T17:28:30+08:00">
+                2018-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/05/30/blog4/" class="leancloud_visitors" data-flag-title="如何实现div中的span居左居右对齐，且在同一行上">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近在做网页设计的大作业，遇到很多有意思的问题，在这里记录一下。<br><br><br>比如我要实现一行中有详细信息和更多信息，想让他们分别居左居右显示。以下是方法：<br><br></p>
+<p><ul></ul></p>
+<p><li><h1>方法1：用CSS设置left和right类并设置浮动float</h1></li></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;
+span中居左居右
+&lt;/title&gt;
+&lt;style&gt;
+.left{ 
+float:left; width:50%px;
+ }
+.right{
+float:right;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div&gt;
+&lt;span class=&quot;left&quot;&gt;使用span布局居左&lt;/span&gt;
+   &lt;span class=&quot;right&quot;&gt;使用span布局居右&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p></p>
+<p><li></li></p>
+<h1>方法2：采用bootstrap框架中的.pull-left class类和.pull-right class 类</h1>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Bootstrap框架实现&lt;/title&gt;
+&lt;!-- 最新版本的 Bootstrap 核心 CSS 文件 --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;
+&lt;script src=&quot;https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;!-- 最新的 Bootstrap 核心 JavaScript 文件 --&gt;
+&lt;script src=&quot;https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;    
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div&gt;
+&lt;span class=&quot;pull-left&quot;&gt;使用span布局居左&lt;/span&gt;
+&lt;span class=&quot;pull-right&quot;&gt;使用span布局居右&lt;/span&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p></p>
+<h1>由以上可以发现框架有很多已经处理好的CSS样式，更加方便我们实现网页设计。</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/blog3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1093,7 +1403,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

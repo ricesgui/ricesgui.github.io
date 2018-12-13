@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="实现了时间日期组件限制选择，生产日期不能大于结束日期。 &amp;lt;template&amp;gt;   &amp;lt;div class=&amp;quot;hello&amp;quot;&amp;gt;           {{starttime}}     &amp;lt;el-date-picker v-model=&amp;quot;starttime&amp;quot; :picker-options=&amp;quot;startTime&amp;quot; ty">
+<meta name="description" content="前言最近做的一个页面跳转碰到一个问题就是我点击跳转的第一次没有传到值，再点击第二次的时候才有值，很是奇怪，研究了一下watch的一些相关属性。 immediate属性发现watch的一个特点是最初绑定的时候不执行改变即第一次直接赋值不会监听到，这里需要用到immediate属性，默认值为false,我们需要这样写immediate：true,即立刻执行。deep属性watch的另一个属性是deep">
 <meta property="og:type" content="article">
-<meta property="og:title" content="elementui时间组件结束日期不能小于生产日期">
-<meta property="og:url" content="http://yoursite.com/2018/10/27/elementui时间组件结束日期不能小于生产日期/index.html">
+<meta property="og:title" content="elementui实现页面跳转第一次没有监听到参数，第二次才有的解决方案">
+<meta property="og:url" content="http://yoursite.com/2018/12/13/elementui实现页面跳转第一次没有监听到参数，第二次才有的解决方案/index.html">
 <meta property="og:site_name" content="Ricesgui">
-<meta property="og:description" content="实现了时间日期组件限制选择，生产日期不能大于结束日期。 &amp;lt;template&amp;gt;   &amp;lt;div class=&amp;quot;hello&amp;quot;&amp;gt;           {{starttime}}     &amp;lt;el-date-picker v-model=&amp;quot;starttime&amp;quot; :picker-options=&amp;quot;startTime&amp;quot; ty">
+<meta property="og:description" content="前言最近做的一个页面跳转碰到一个问题就是我点击跳转的第一次没有传到值，再点击第二次的时候才有值，很是奇怪，研究了一下watch的一些相关属性。 immediate属性发现watch的一个特点是最初绑定的时候不执行改变即第一次直接赋值不会监听到，这里需要用到immediate属性，默认值为false,我们需要这样写immediate：true,即立刻执行。deep属性watch的另一个属性是deep">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-27T10:15:00.588Z">
+<meta property="og:updated_time" content="2018-12-13T11:32:31.088Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="elementui时间组件结束日期不能小于生产日期">
-<meta name="twitter:description" content="实现了时间日期组件限制选择，生产日期不能大于结束日期。 &amp;lt;template&amp;gt;   &amp;lt;div class=&amp;quot;hello&amp;quot;&amp;gt;           {{starttime}}     &amp;lt;el-date-picker v-model=&amp;quot;starttime&amp;quot; :picker-options=&amp;quot;startTime&amp;quot; ty">
+<meta name="twitter:title" content="elementui实现页面跳转第一次没有监听到参数，第二次才有的解决方案">
+<meta name="twitter:description" content="前言最近做的一个页面跳转碰到一个问题就是我点击跳转的第一次没有传到值，再点击第二次的时候才有值，很是奇怪，研究了一下watch的一些相关属性。 immediate属性发现watch的一个特点是最初绑定的时候不执行改变即第一次直接赋值不会监听到，这里需要用到immediate属性，默认值为false,我们需要这样写immediate：true,即立刻执行。deep属性watch的另一个属性是deep">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/27/elementui时间组件结束日期不能小于生产日期/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/13/elementui实现页面跳转第一次没有监听到参数，第二次才有的解决方案/"/>
 
 
 
 
 
-  <title>elementui时间组件结束日期不能小于生产日期 | Ricesgui</title>
+  <title>elementui实现页面跳转第一次没有监听到参数，第二次才有的解决方案 | Ricesgui</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/27/elementui时间组件结束日期不能小于生产日期/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/elementui实现页面跳转第一次没有监听到参数，第二次才有的解决方案/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xiaogui">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">elementui时间组件结束日期不能小于生产日期</h1>
+          <h1 class="post-title" itemprop="name headline">elementui实现页面跳转第一次没有监听到参数，第二次才有的解决方案</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-27T18:13:10+08:00">
-                2018-10-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-13T19:31:18+08:00">
+                2018-12-13
               </time>
             
 
@@ -309,7 +309,7 @@
 
           
           
-             <span id="/2018/10/27/elementui时间组件结束日期不能小于生产日期/" class="leancloud_visitors" data-flag-title="elementui时间组件结束日期不能小于生产日期">
+             <span id="/2018/12/13/elementui实现页面跳转第一次没有监听到参数，第二次才有的解决方案/" class="leancloud_visitors" data-flag-title="elementui实现页面跳转第一次没有监听到参数，第二次才有的解决方案">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                </span>
@@ -344,48 +344,33 @@
       
 
       
-        <p>实现了时间日期组件限制选择，生产日期不能大于结束日期。</p>
-<pre><code>&lt;template&gt;
-  &lt;div class=&quot;hello&quot;&gt;       
-   {{starttime}}
-    &lt;el-date-picker v-model=&quot;starttime&quot; :picker-options=&quot;startTime&quot; type=&quot;date&quot; value-format=&quot;yyyy-MM-dd&quot;&gt;&lt;/el-date-picker&gt;
-    {{endtime}}
-    &lt;el-date-picker v-model=&quot;endtime&quot; :picker-options=&quot;endTime&quot; type=&quot;date&quot; value-format=&quot;yyyy-MM-dd&quot;&gt;&lt;/el-date-picker&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
+        <p></p><h1>前言</h1><br>最近做的一个页面跳转碰到一个问题就是我点击跳转的第一次没有传到值，再点击第二次的时候才有值，很是奇怪，研究了一下watch的一些相关属性。<p></p>
+<h2>immediate属性</h2><br>发现watch的一个特点是最初绑定的时候不执行改变即第一次直接赋值不会监听到，这里需要用到immediate属性，默认值为false,我们需要这样写immediate：true,即立刻执行。<br><h2>deep属性</h2><br>watch的另一个属性是deep,默认值为false,代表是否深度监听，设置deep:true,意思就是深入观察，监听器会一层层的往下遍历，给对象的所有属性都加上这个监听器，但是这样开销性能就会非常大了，任何修改对象里面的一个属性都会触发这个监听器里的handler。优化方法就是像我下面的代码一样使用字符串形式监听。<br><h2>注销watch</h2><br>为什么要注销 watch？因为我们的组件是经常要被销毁的，比如我们跳一个路由，从一个页面跳到另外一个页面，那么原来的页面的 watch 其实就没用了，这时候我们应该注销掉原来页面的 watch 的，不然的话可能会导致内置溢出。好在我们平时 watch 都是写在组件的选项中的，他会随着组件的销毁而销毁。<br><br>    const app = new Vue({<br>      template: ‘<div id="root"></div>‘,<br>      data: {<br>        text: 0<br>      },<br>      watch: {<br>        text(newVal, oldVal){<br>          console.log(<code>${newVal} : ${oldVal}</code>);<br>        }<br>      }<br>    });<br>但是，如果我们使用下面这样的方式写 watch，那么就要手动注销了，这种注销其实也很简单<br><br>    const unWatch = app.$watch(‘text’, (newVal, oldVal) =&gt; {<br>      console.log(<code>${newVal} : ${oldVal}</code>);<br>    })<br><br>    unWatch(); // 手动注销watch<br>由于我这个currentNavigation是写在store.js里的,所以在页面时需要计算赋值给它。<br><br><h2>实现代码：</h2>
 
-&lt;script&gt;
-export default {
-  data () {
-    return {
-      starttime: &apos;&apos;,
-      endtime: &apos;&apos;,
-      startTime: {
-        disabledDate: time =&gt; {
-          if (this.endtime) {
-            return (
-              time.getTime() &gt; new Date(this.endtime).getTime()
-            )
-          } else {
-            return time.getTime() &gt; Date.now()
-          }
-        }
-      },
-      endTime: {
-        disabledDate: time =&gt; {
-          if (this.starttime) {
-            return (
-              time.getTime() &lt; new Date(this.starttime).getTime()
-            )
-          } else {
-            return time.getTime() &gt; Date.now()
-          }
+<p>store.js</p>
+<pre><code>currentNavigation: {            // 当前页面信息
+  name: &apos;首页&apos;,
+  id: &apos;home&apos;,
+  componentName: &apos;appHome&apos;
+},
+</code></pre><p>页面.vue</p>
+<pre><code>computed: {
+    currentNavigation () {
+      return this.$store.state.currentNavigation
+    }
+  },
+
+watch: {
+    &apos;currentNavigation.param&apos;: {
+      immediate: true,
+      deep: true,
+      handler (val, oldVal) {
+        if (!Utils.isEmptyData(val) &amp;&amp; oldVal !== val) {
+          this.handleRouteParam() // 处理路由跳转后的页面渲染数据
         }
       }
     }
-  }
 }
-&lt;/script&gt;
 </code></pre>
       
     </div>
@@ -410,8 +395,8 @@ export default {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/26/ElemenUI时间日期组件/" rel="next" title="ElemenUI时间日期组件">
-                <i class="fa fa-chevron-left"></i> ElemenUI时间日期组件
+              <a href="/2018/11/23/监听表单里的数据变化/" rel="next" title="监听表单里的数据变化">
+                <i class="fa fa-chevron-left"></i> 监听表单里的数据变化
               </a>
             
           </div>
@@ -420,8 +405,8 @@ export default {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/06/树形组件实现节点前图标/" rel="prev" title="树形组件实现节点前图标">
-                树形组件实现节点前图标 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/13/Elementui-ui表格实现双击编辑，并符合不同输入需求/" rel="prev" title="Elementui-ui表格实现双击编辑，并符合不同输入需求">
+                Elementui-ui表格实现双击编辑，并符合不同输入需求 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -479,8 +464,17 @@ export default {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -587,6 +581,22 @@ export default {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">immediate属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">deep属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">注销watch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">实现代码：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
