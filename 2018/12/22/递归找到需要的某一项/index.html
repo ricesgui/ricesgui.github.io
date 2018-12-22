@@ -79,23 +79,17 @@
 
 
 
-<meta name="description" content="Vue的父子通讯在vue中，其中一个重要的通信就是父子通讯，父子之间的设置又随着情况而不同。其中最常见的就是父组件为控制组件，子组件为视图组件。父组件传递数据给子组件使用，遇到业务逻辑操作时子组件触发父组件的自定义事件。 父组件到子组件通讯 父组件到子组件的通讯主要为：子组件接受使用父组件的数据，数据包括属性和方法（String,Number,Boolean,Object,Array,Funct">
+<meta name="description" content="前言最近在跟后台对接口时遇到一个这样的问题，后台接口返回的JSON数据格式如下，而我在级联下拉框中选中后需要给后台传targetNumber字段，但是在分组里该字段是空的，不能通过简单的设置defaultprop来实现选中得到的东西。所以我想到了递归搜索返回并写了一个函数来实现他。 {     &amp;quot;value&amp;quot;: &amp;quot;1010&amp;quot;,     &amp;quot;label">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue父子通讯">
-<meta property="og:url" content="http://yoursite.com/2018/09/04/Vue父子通讯/index.html">
+<meta property="og:title" content="递归找到需要的某一项">
+<meta property="og:url" content="http://yoursite.com/2018/12/22/递归找到需要的某一项/index.html">
 <meta property="og:site_name" content="Ricesgui">
-<meta property="og:description" content="Vue的父子通讯在vue中，其中一个重要的通信就是父子通讯，父子之间的设置又随着情况而不同。其中最常见的就是父组件为控制组件，子组件为视图组件。父组件传递数据给子组件使用，遇到业务逻辑操作时子组件触发父组件的自定义事件。 父组件到子组件通讯 父组件到子组件的通讯主要为：子组件接受使用父组件的数据，数据包括属性和方法（String,Number,Boolean,Object,Array,Funct">
+<meta property="og:description" content="前言最近在跟后台对接口时遇到一个这样的问题，后台接口返回的JSON数据格式如下，而我在级联下拉框中选中后需要给后台传targetNumber字段，但是在分组里该字段是空的，不能通过简单的设置defaultprop来实现选中得到的东西。所以我想到了递归搜索返回并写了一个函数来实现他。 {     &amp;quot;value&amp;quot;: &amp;quot;1010&amp;quot;,     &amp;quot;label">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/sza36iD.png">
-<meta property="og:image" content="https://i.imgur.com/8sGJm6Y.png">
-<meta property="og:image" content="https://i.imgur.com/O2W8sB0.png">
-<meta property="og:image" content="https://i.imgur.com/vES4Ybo.png">
-<meta property="og:image" content="https://i.imgur.com/Ok0c2Fz.png">
-<meta property="og:updated_time" content="2018-09-04T15:08:28.474Z">
+<meta property="og:updated_time" content="2018-12-22T13:29:56.865Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue父子通讯">
-<meta name="twitter:description" content="Vue的父子通讯在vue中，其中一个重要的通信就是父子通讯，父子之间的设置又随着情况而不同。其中最常见的就是父组件为控制组件，子组件为视图组件。父组件传递数据给子组件使用，遇到业务逻辑操作时子组件触发父组件的自定义事件。 父组件到子组件通讯 父组件到子组件的通讯主要为：子组件接受使用父组件的数据，数据包括属性和方法（String,Number,Boolean,Object,Array,Funct">
-<meta name="twitter:image" content="https://i.imgur.com/sza36iD.png">
+<meta name="twitter:title" content="递归找到需要的某一项">
+<meta name="twitter:description" content="前言最近在跟后台对接口时遇到一个这样的问题，后台接口返回的JSON数据格式如下，而我在级联下拉框中选中后需要给后台传targetNumber字段，但是在分组里该字段是空的，不能通过简单的设置defaultprop来实现选中得到的东西。所以我想到了递归搜索返回并写了一个函数来实现他。 {     &amp;quot;value&amp;quot;: &amp;quot;1010&amp;quot;,     &amp;quot;label">
 
 
 
@@ -125,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/04/Vue父子通讯/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/22/递归找到需要的某一项/"/>
 
 
 
 
 
-  <title>Vue父子通讯 | Ricesgui</title>
+  <title>递归找到需要的某一项 | Ricesgui</title>
   
 
 
@@ -268,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/Vue父子通讯/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/22/递归找到需要的某一项/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xiaogui">
@@ -285,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Vue父子通讯</h1>
+          <h1 class="post-title" itemprop="name headline">递归找到需要的某一项</h1>
         
 
         <div class="post-meta">
@@ -297,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T23:07:48+08:00">
-                2018-09-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T21:28:53+08:00">
+                2018-12-22
               </time>
             
 
@@ -315,7 +309,7 @@
 
           
           
-             <span id="/2018/09/04/Vue父子通讯/" class="leancloud_visitors" data-flag-title="Vue父子通讯">
+             <span id="/2018/12/22/递归找到需要的某一项/" class="leancloud_visitors" data-flag-title="递归找到需要的某一项">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                </span>
@@ -350,41 +344,138 @@
       
 
       
-        <p></p><h1> Vue的父子通讯</h1><br>在vue中，其中一个重要的通信就是父子通讯，父子之间的设置又随着情况而不同。其中最常见的就是父组件为控制组件，子组件为视图组件。父组件传递数据给子组件使用，遇到业务逻辑操作时子组件触发父组件的自定义事件。<p></p>
-<p></p><h3>父组件到子组件通讯</h3><p></p>
-<p></p><p>父组件到子组件的通讯主要为：子组件接受使用父组件的数据，数据包括属性和方法（String,Number,Boolean,Object,Array,Function）.通常情况下都是父组件传递数据给子组件使用，子组件触发父组件的事件，并传递给父组件所需要的参数。</p>
-<p><ul></ul></p>
-<p><li>通过props传递数据</li></p>
-<p></p><p>props传递数据即父组件调用子组件并传入数据，子组件接受到父组建传递的数据进行验证使用。<br>如下图：我在主页面调用显示新建规则对话框组件,需要在Script部分import进来该组件，并且注册component，然后在调用显示的模块里监听该父组件的值</p><br>    <template><br>      <div><br>        <h2>主页面</h2><br>           <add-rules-dialog v-if="addRulesOnoff" :dialog-form-visible="addRulesOnoff"><br>              </add-rules-dialog><br>        </div><br>    </template><br>    <script><br>    import AddRulesDialog from …//此处填写您的组件路径<br>    …<br>    export default {<br>        components: {<br>        AddRulesDialog<br>    }，<br>        data() {<br>             return{<br>                addRulesOnOff<br>                    }，<br>        method: {<br>         addRules() {<br>            this.title = ‘创建报警规则’<br>            this.addRulesOnoff = true<br>            this.isClickOnModal = false<br>            this.rowEditOnoff = false<br>            this.rowOnoff = false<br>            this.isRead = false<br>            this.isReadonly = false<br>          }<br>    </script><p></p>
-<p><img src="https://i.imgur.com/sza36iD.png" alt=""><br><img src="https://i.imgur.com/8sGJm6Y.png" alt=""><br>在子组件中定义props数据,如下图所示<br><img src="https://i.imgur.com/O2W8sB0.png" alt=""></p>
-<p><li>通过$on 传递父组件方法</li><br><br>$on传递父组件方法与props传递方法达到相同的效果。相比于props传递function,它更加的直观和显示的表示出调用关系。<br><img src="https://i.imgur.com/vES4Ybo.png" alt=""><br><img src="https://i.imgur.com/Ok0c2Fz.png" alt=""></p>
-<p></p><h3>子组件到父组件通讯</h3><p></p>
-<p><ul></ul></p>
-<p><li>通过$emit传递父组件数据</li><br>与父组件到子组件通讯中的$on配套使用，可以向父组件中触发的方法传递参数供父组件使用。</p>
-<p><li>通过refs获取</li><br>可以通过在子组件添加ref属性，然后可以通过ref属性名称获取到子组件的实例。准确来说这种方式和this.$parent一样并不属于数据的传递而是一种主动的查找。<br>尽量避免使用这种方式。因为在父子组件通信的过程中。父组件是处于高位是拥有控制权，而子组件在多数情况下应该为纯视图组件，只负责视图的展示和自身视图的逻辑操作。对外交互的权利应该由父组件来控制。所以应当由父组件传递视图数据给子组件，子组件负责展示。而子组件的对外交互通过$emit触发父组件中相应的方法，再由父组件处理相应逻辑。</p>
+        <p></p><h1>前言</h1><br>最近在跟后台对接口时遇到一个这样的问题，后台接口返回的JSON数据格式如下，而我在级联下拉框中选中后需要给后台传targetNumber字段，但是在分组里该字段是空的，不能通过简单的设置defaultprop来实现选中得到的东西。所以我想到了递归搜索返回并写了一个函数来实现他。<p></p>
+<pre><code>{
+    &quot;value&quot;: &quot;1010&quot;,
+    &quot;label&quot;: &quot;演示对象组&quot;,
+    &quot;parentid&quot;: null,
+    &quot;leaf&quot;: false,
+    &quot;disabled&quot;: false,
+    &quot;targetNumber&quot;: null,
+    &quot;children&quot;: [
+        {
+            &quot;value&quot;: &quot;27B62743B87E4CCD9592F2F0FC93BFE4&quot;,
+            &quot;label&quot;: &quot;作业人员B&quot;,
+            &quot;parentid&quot;: &quot;1010&quot;,
+            &quot;leaf&quot;: true,
+            &quot;disabled&quot;: false,
+            &quot;targetNumber&quot;: &quot;S62178186220125&quot;,
+            &quot;children&quot;: null
+        },
+        {
+            &quot;value&quot;: &quot;E30795CD2FA9454CA2394ED4E63423DC&quot;,
+            &quot;label&quot;: &quot;作业人员A&quot;,
+            &quot;parentid&quot;: &quot;1010&quot;,
+            &quot;leaf&quot;: true,
+            &quot;disabled&quot;: false,
+            &quot;targetNumber&quot;: &quot;S62178186220111&quot;,
+            &quot;children&quot;: null
+        }
+    ]
+}
+</code></pre><p>代码如下： </p>
 <pre><code>&lt;template&gt;
-  &lt;div&gt;
-    &lt;h2&gt;父组件&lt;/h2&gt;
-    &lt;br&gt;
-    &lt;Child-one ref=&quot;child&quot;&gt;&lt;/Child-one&gt;
-  &lt;/div&gt;
+    &lt;el-form :model=&quot;addForm&quot; 
+      :rules=&quot;addRuleForm&quot; 
+      ref=&quot;addForm&quot; 
+      label-width=&quot;130px&quot; 
+      :inline=&quot;true&quot; 
+      label-position=&quot;right&quot;
+      class=&quot;worksheetDialog&quot;&gt;
+        &lt;el-form-item label=&quot;下发对象&quot; prop=&quot;receivePeople&quot; v-if=&quot;!isEdit&quot;&gt;
+          &lt;el-cascader 
+            clearable
+            placeholder=&quot;输入对象名称搜索&quot;
+            v-model=&quot;addForm.receivePeople&quot;
+            :props=&quot;defaultProps&quot;
+            :options=&quot;peopleOptions&quot;
+            show-all-levels
+            filterable
+            @change=&quot;handleChange&quot;  
+          &gt;&lt;/el-cascader&gt;
+        &lt;/el-form-item&gt;
+    &lt;/el-form&gt;
 &lt;/template&gt;
+
 &lt;script&gt;
-  import ChildOne from &apos;./ChildOne&apos;;
 
-  export default{
-    components: {
-      ChildOne,
+export default {
+  name: &apos;dropOrderDialog&apos;,
+  data () {
+    return {
+      addForm: {
+        receivePeople: [],
+        receivenumber: &apos;&apos;
+      },
+      peopleOptions: [],
+      defaultProps: {
+        children: &apos;children&apos;,
+        label: &apos;label&apos;,
+        value: &apos;value&apos;
+      }
+    }
+  },
+  mounted () {
+    this.findDownListForTarget()
+  },
+  methods: {
+    // 用户点击级联框选中时触发
+    handleChange (value) {
+      let _data = value[value.length - 1]
+      // 只需要最后一个id
+      this.addForm.receivenumber = this.getReceiveNumber(this.peopleOptions, _data)
     },
-    mounted(){
-      console.log(this.$refs[&apos;child&apos;]);
+    getReceiveNumber (data, val) { // 递归遍历获取接受者编号
+      let _data = &apos;&apos;
+      const fn = (data) =&gt; {
+        data.forEach((item, index) =&gt; {
+          if (item.value === val) {
+            _data = item.targetNumber
+          } else if (item.children &amp;&amp; item.children.length &gt; 0) { // 有孩子节点
+            fn(item.children, val)
+          }
+        })
+      }
+      fn(data)
+      return _data
     },
-  };
+    // 后台返回数据的接口
+    findDownListForTarget () {
+      Api.findDownListForTarget()       
+        .then(res =&gt; {
+          let datas = res.data
+          if (res.status === 0) {   
+            this.peopleOptions = this.getChilds(datas)        
+          } else {
+            this.$message({
+              type: &apos;warning&apos;,  
+              message: res.message || &apos;请求数据失败&apos;
+            })
+          }
+        })
+        .catch(res =&gt; {
+          this.$message({
+            type: &apos;error&apos;,
+            message: &apos;请求数据失败&apos;
+          })
+        })
+    },
+    // 递归
+    getChilds (data) {
+      if (data) {
+        for (var i = 0; i &lt; data.length; i++) {
+          if (data[i].children &amp;&amp; Array.isArray(data[i].children)) {
+            this.getChilds(data[i].children)
+          } else {
+            delete data[i][&apos;children&apos;]
+          }
+        }
+      }  
+      return data
+    }
+  }
+}
 &lt;/script&gt;
-&lt;style scoped&gt;
-&lt;/style&gt;
-
-this.$refs[&apos;child&apos;]
 </code></pre>
       
     </div>
@@ -409,8 +500,8 @@ this.$refs[&apos;child&apos;]
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/28/Vue生命周期/" rel="next" title="Vue生命周期">
-                <i class="fa fa-chevron-left"></i> Vue生命周期
+              <a href="/2018/12/13/Elementui-ui表格实现双击编辑，并符合不同输入需求/" rel="next" title="Elementui-ui表格实现双击编辑，并符合不同输入需求">
+                <i class="fa fa-chevron-left"></i> Elementui-ui表格实现双击编辑，并符合不同输入需求
               </a>
             
           </div>
@@ -418,10 +509,6 @@ this.$refs[&apos;child&apos;]
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/04/WebSocket通信/" rel="prev" title="WebSocket通信">
-                WebSocket通信 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -605,7 +692,7 @@ this.$refs[&apos;child&apos;]
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"> Vue的父子通讯</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">父组件到子组件通讯</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">主页面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.</span> <span class="nav-text">子组件到父组件通讯</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
             
 
           </div>

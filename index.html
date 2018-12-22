@@ -262,6 +262,267 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/22/递归找到需要的某一项/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaogui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/22/递归找到需要的某一项/" itemprop="url">递归找到需要的某一项</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-22T21:28:53+08:00">
+                2018-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/12/22/递归找到需要的某一项/" class="leancloud_visitors" data-flag-title="递归找到需要的某一项">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p></p><h1>前言</h1><br>最近在跟后台对接口时遇到一个这样的问题，后台接口返回的JSON数据格式如下，而我在级联下拉框中选中后需要给后台传targetNumber字段，但是在分组里该字段是空的，不能通过简单的设置defaultprop来实现选中得到的东西。所以我想到了递归搜索返回并写了一个函数来实现他。<p></p>
+<pre><code>{
+    &quot;value&quot;: &quot;1010&quot;,
+    &quot;label&quot;: &quot;演示对象组&quot;,
+    &quot;parentid&quot;: null,
+    &quot;leaf&quot;: false,
+    &quot;disabled&quot;: false,
+    &quot;targetNumber&quot;: null,
+    &quot;children&quot;: [
+        {
+            &quot;value&quot;: &quot;27B62743B87E4CCD9592F2F0FC93BFE4&quot;,
+            &quot;label&quot;: &quot;作业人员B&quot;,
+            &quot;parentid&quot;: &quot;1010&quot;,
+            &quot;leaf&quot;: true,
+            &quot;disabled&quot;: false,
+            &quot;targetNumber&quot;: &quot;S62178186220125&quot;,
+            &quot;children&quot;: null
+        },
+        {
+            &quot;value&quot;: &quot;E30795CD2FA9454CA2394ED4E63423DC&quot;,
+            &quot;label&quot;: &quot;作业人员A&quot;,
+            &quot;parentid&quot;: &quot;1010&quot;,
+            &quot;leaf&quot;: true,
+            &quot;disabled&quot;: false,
+            &quot;targetNumber&quot;: &quot;S62178186220111&quot;,
+            &quot;children&quot;: null
+        }
+    ]
+}
+</code></pre><p>代码如下： </p>
+<pre><code>&lt;template&gt;
+    &lt;el-form :model=&quot;addForm&quot; 
+      :rules=&quot;addRuleForm&quot; 
+      ref=&quot;addForm&quot; 
+      label-width=&quot;130px&quot; 
+      :inline=&quot;true&quot; 
+      label-position=&quot;right&quot;
+      class=&quot;worksheetDialog&quot;&gt;
+        &lt;el-form-item label=&quot;下发对象&quot; prop=&quot;receivePeople&quot; v-if=&quot;!isEdit&quot;&gt;
+          &lt;el-cascader 
+            clearable
+            placeholder=&quot;输入对象名称搜索&quot;
+            v-model=&quot;addForm.receivePeople&quot;
+            :props=&quot;defaultProps&quot;
+            :options=&quot;peopleOptions&quot;
+            show-all-levels
+            filterable
+            @change=&quot;handleChange&quot;  
+          &gt;&lt;/el-cascader&gt;
+        &lt;/el-form-item&gt;
+    &lt;/el-form&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+
+export default {
+  name: &apos;dropOrderDialog&apos;,
+  data () {
+    return {
+      addForm: {
+        receivePeople: [],
+        receivenumber: &apos;&apos;
+      },
+      peopleOptions: [],
+      defaultProps: {
+        children: &apos;children&apos;,
+        label: &apos;label&apos;,
+        value: &apos;value&apos;
+      }
+    }
+  },
+  mounted () {
+    this.findDownListForTarget()
+  },
+  methods: {
+    // 用户点击级联框选中时触发
+    handleChange (value) {
+      let _data = value[value.length - 1]
+      // 只需要最后一个id
+      this.addForm.receivenumber = this.getReceiveNumber(this.peopleOptions, _data)
+    },
+    getReceiveNumber (data, val) { // 递归遍历获取接受者编号
+      let _data = &apos;&apos;
+      const fn = (data) =&gt; {
+        data.forEach((item, index) =&gt; {
+          if (item.value === val) {
+            _data = item.targetNumber
+          } else if (item.children &amp;&amp; item.children.length &gt; 0) { // 有孩子节点
+            fn(item.children, val)
+          }
+        })
+      }
+      fn(data)
+      return _data
+    },
+    // 后台返回数据的接口
+    findDownListForTarget () {
+      Api.findDownListForTarget()       
+        .then(res =&gt; {
+          let datas = res.data
+          if (res.status === 0) {   
+            this.peopleOptions = this.getChilds(datas)        
+          } else {
+            this.$message({
+              type: &apos;warning&apos;,  
+              message: res.message || &apos;请求数据失败&apos;
+            })
+          }
+        })
+        .catch(res =&gt; {
+          this.$message({
+            type: &apos;error&apos;,
+            message: &apos;请求数据失败&apos;
+          })
+        })
+    },
+    // 递归
+    getChilds (data) {
+      if (data) {
+        for (var i = 0; i &lt; data.length; i++) {
+          if (data[i].children &amp;&amp; Array.isArray(data[i].children)) {
+            this.getChilds(data[i].children)
+          } else {
+            delete data[i][&apos;children&apos;]
+          }
+        }
+      }  
+      return data
+    }
+  }
+}
+&lt;/script&gt;
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/Elementui-ui表格实现双击编辑，并符合不同输入需求/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1701,271 +1962,6 @@ export default {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/25/实现过渡效果/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xiaogui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/25/实现过渡效果/" itemprop="url">实现过渡效果</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-25T21:47:14+08:00">
-                2018-10-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/10/25/实现过渡效果/" class="leancloud_visitors" data-flag-title="实现过渡效果">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在做项目的时候，产品说我点击变化需要有个过渡，结合实际最终实现了效果，来mark一下。<br>这里还涉及到动态绑定类</p>
-<pre><code>&lt;template&gt;
-  &lt;div class=&quot;container TrajectoryTable&quot;
-    :style=&quot;&apos;width:&apos; + docWidth + &apos;%;&apos; + &apos;height:&apos; + docHeight + &apos;px&apos;&quot;
-    v-loading.body=&quot;dialogLoading&quot; 
-    element-loading-text=&quot;拼命加载中&quot;&gt;
-    &lt;div class=&quot;tableTop&quot;&gt;
-      &lt;div style=&quot;float: right;&quot;&gt;
-        &lt;el-button @click=&quot;enlargeTable&quot;&gt;
-          &lt;i class=&quot;iconfont&quot; :class=&quot;icon === true ? &apos;icon-caozuo_suoxiao&apos; : &apos;icon-caozuo_quanpingfangda&apos;&quot;&gt;&lt;/i&gt;
-        &lt;/el-button&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;mainTable&quot;&gt;
-      &lt;table-form 
-        v-loading.body=&quot;isLoadingTableData&quot;
-        :colData=&quot;colData&quot; 
-        :data=&quot;tableData&quot; 
-        :colWidth=&quot;120&quot;
-        :max-height=&quot;height&quot;
-        :row-key=&quot;rowKey&quot;
-        :submiting=&quot;submiting&quot;
-        :isShowOper=&quot;isShowOper&quot;
-        :stripe=&quot;true&quot;
-        border 
-        :sortable=&quot;false&quot;
-        &gt;  
-        &lt;el-table-column
-        type=&quot;index&quot;
-        label=&quot;序号&quot;
-        width=&quot;50&quot;&gt;
-        &lt;/el-table-column&gt;    
-        &lt;el-table-column
-          v-for=&quot;item in colData&quot;
-          :key=&quot;item.prop&quot;
-          :prop=&quot;item.prop&quot;
-          :label=&quot;item.label&quot;
-          :width=&quot;item.width&quot;
-          :align=&quot;item.align&quot;
-          :sortable=&quot;false&quot;&gt;     
-        &lt;/el-table-column&gt;       
-      &lt;/table-form&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-
-&lt;script&gt;
-import TableForm from &apos;@/components/Table.vue&apos;
-
-export default {
-  name: &apos;TrajectoryTable&apos;,
-  components: {
-    TableForm
-  },
-  data () {
-    return {
-      isLoadingTableData: false, // 懒加载表单
-      dialogLoading: false, // 懒加载整个页面
-      colData: [],
-      tableData: null,
-      isShowOper: false,
-      rowKey: &apos;domainId&apos;,
-      height: &apos;150&apos;,
-      docWidth: &apos;50&apos;,
-      docHeight: &apos;200&apos;,
-      sortable: true,
-      submiting: false,
-      icon: false
-    }
-  },
-  mounted () {
-    this.inits()
-  },
-  methods: {
-    inits () {     
-      this.colData = [
-        {prop: &apos;laupTime&apos;, label: &apos;时间&apos;, width: &apos;200&apos;, sortable: true, align: &apos;center&apos;},
-        {prop: &apos;targetName&apos;, label: &apos;位置&apos;, width: &apos;200&apos;, sortable: true, align: &apos;center&apos;},
-        {prop: &apos;eventTitle&apos;, label: &apos;速度&apos;, sortable: true, align: &apos;center&apos;},
-        {prop: &apos;status&apos;, label: &apos;状态&apos;, width: &apos;300&apos;, sortable: true, align: &apos;center&apos;},
-        {prop: &apos;audistatus&apos;, label: &apos;里程&apos;, width: &apos;90&apos;, sortable: true, align: &apos;center&apos;}
-      ] 
-      this.tableData = []    
-    },
-    // 点击变化函数
-    enlargeTable () {
-      if (this.icon) {
-        this.docWidth = &apos;50&apos;
-        this.docHeight = &apos;200&apos;
-        this.height = &apos;160&apos;
-        this.icon = false
-      } else {
-        this.docWidth = &apos;90&apos;
-        this.docHeight = &apos;500&apos;
-        this.height = &apos;450&apos;
-        this.icon = true
-      }     
-    }
-  }
-}
-&lt;/script&gt;
-
-&lt;style lang=&quot;scss&quot;&gt;
-.TrajectoryTable {
-  width: 50%;
-  height: 200px;
-  background: rgba(80, 92, 100, 0.8);
-  position: absolute;
-  bottom: 2px;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  border-radius: 4px;
-  padding: 0 8px;
-  transition: all 0.5s; // 划重点，过渡函数
-
-  .tableTop {
-    height: 40px;
-    padding: 1px;
-
-    .el-button {
-      padding: 8px 10px;
-    }
-    .el-button+.el-button {
-      margin-left: 0px;
-    }
-  }
-  .mainTable {
-    padding: 0;
-    overflow: auto;
-    // margin-top: 30px;
-  }
-
-}
-&lt;/style&gt;
-</code></pre><p>实现效果：<br><img src="https://i.imgur.com/xCoOFl4.gif" alt=""></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2016,7 +2012,7 @@ export default {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
