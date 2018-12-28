@@ -615,8 +615,7 @@
 
       
         
-          
-            <p></p><h1>前言</h1><br>最近在跟后台对接口时遇到一个这样的问题，后台接口返回的JSON数据格式如下，而我在级联下拉框中选中后需要给后台传targetNumber字段，但是在分组里该字段是空的，不能通过简单的设置defaultprop来实现选中得到的东西。所以我想到了递归搜索返回并写了一个函数来实现他。<p></p>
+          <p></p><h1>前言</h1><br>最近在跟后台对接口时遇到一个这样的问题，后台接口返回的JSON数据格式如下，而我在级联下拉框中选中后需要给后台传targetNumber字段，但是在分组里该字段是空的，不能通过简单的设置defaultprop来实现选中得到的东西。所以我想到了递归搜索返回并写了一个函数来实现他。<p></p>
 <pre><code>{
     &quot;value&quot;: &quot;1010&quot;,
     &quot;label&quot;: &quot;演示对象组&quot;,
@@ -646,110 +645,13 @@
     ]
 }
 </code></pre><p>代码如下： </p>
-<pre><code>&lt;template&gt;
-    &lt;el-form :model=&quot;addForm&quot; 
-      :rules=&quot;addRuleForm&quot; 
-      ref=&quot;addForm&quot; 
-      label-width=&quot;130px&quot; 
-      :inline=&quot;true&quot; 
-      label-position=&quot;right&quot;
-      class=&quot;worksheetDialog&quot;&gt;
-        &lt;el-form-item label=&quot;下发对象&quot; prop=&quot;receivePeople&quot; v-if=&quot;!isEdit&quot;&gt;
-          &lt;el-cascader 
-            clearable
-            placeholder=&quot;输入对象名称搜索&quot;
-            v-model=&quot;addForm.receivePeople&quot;
-            :props=&quot;defaultProps&quot;
-            :options=&quot;peopleOptions&quot;
-            show-all-levels
-            filterable
-            @change=&quot;handleChange&quot;  
-          &gt;&lt;/el-cascader&gt;
-        &lt;/el-form-item&gt;
-    &lt;/el-form&gt;
-&lt;/template&gt;
-
-&lt;script&gt;
-
-export default {
-  name: &apos;dropOrderDialog&apos;,
-  data () {
-    return {
-      addForm: {
-        receivePeople: [],
-        receivenumber: &apos;&apos;
-      },
-      peopleOptions: [],
-      defaultProps: {
-        children: &apos;children&apos;,
-        label: &apos;label&apos;,
-        value: &apos;value&apos;
-      }
-    }
-  },
-  mounted () {
-    this.findDownListForTarget()
-  },
-  methods: {
-    // 用户点击级联框选中时触发
-    handleChange (value) {
-      let _data = value[value.length - 1]
-      // 只需要最后一个id
-      this.addForm.receivenumber = this.getReceiveNumber(this.peopleOptions, _data)
-    },
-    getReceiveNumber (data, val) { // 递归遍历获取接受者编号
-      let _data = &apos;&apos;
-      const fn = (data) =&gt; {
-        data.forEach((item, index) =&gt; {
-          if (item.value === val) {
-            _data = item.targetNumber
-          } else if (item.children &amp;&amp; item.children.length &gt; 0) { // 有孩子节点
-            fn(item.children, val)
-          }
-        })
-      }
-      fn(data)
-      return _data
-    },
-    // 后台返回数据的接口
-    findDownListForTarget () {
-      Api.findDownListForTarget()       
-        .then(res =&gt; {
-          let datas = res.data
-          if (res.status === 0) {   
-            this.peopleOptions = this.getChilds(datas)        
-          } else {
-            this.$message({
-              type: &apos;warning&apos;,  
-              message: res.message || &apos;请求数据失败&apos;
-            })
-          }
-        })
-        .catch(res =&gt; {
-          this.$message({
-            type: &apos;error&apos;,
-            message: &apos;请求数据失败&apos;
-          })
-        })
-    },
-    // 递归
-    getChilds (data) {
-      if (data) {
-        for (var i = 0; i &lt; data.length; i++) {
-          if (data[i].children &amp;&amp; Array.isArray(data[i].children)) {
-            this.getChilds(data[i].children)
-          } else {
-            delete data[i][&apos;children&apos;]
-          }
-        }
-      }  
-      return data
-    }
-  }
-}
-&lt;/script&gt;
-</code></pre>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/22/递归找到需要的某一项/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -876,77 +778,16 @@ export default {
 
       
         
-          
-            <p></p><h1>前言</h1><br>最近项目在做节假日管理，需要有一个操作就是用户双击表格里的某一行，可以修改该行，并且有输入框和选择框。<p></p>
+          <p></p><h1>前言</h1><br>最近项目在做节假日管理，需要有一个操作就是用户双击表格里的某一行，可以修改该行，并且有输入框和选择框。<p></p>
 <p>实现效果：<br><img src="https://i.imgur.com/zkU82Cv.png" alt=""></p>
-<p>上代码。</p>
-<pre><code>&lt;el-table 
-    v-loading=&quot;isLoading&quot; element-loading-text=&quot;拼命加载中...&quot;
-    ref=&quot;tableRef&quot;
-    :data=&quot;tableData&quot;
-    :max-height=&quot;maxHeight&quot;
-    border
-    @row-click=&quot;handleRowClick&quot;
-    @row-dblclick=&quot;handleRowDblclick&quot;
-    stripe&gt;
-    &lt;el-table-column
-      v-for=&quot;item in tableColData&quot;
-      :key=&quot;item.prop&quot;
-      :prop=&quot;item.prop&quot;
-      :label=&quot;item.label&quot;
-      :sortable=&quot;item.sortable&quot;
-      :width=&quot;item.width&quot;
-      :align=&quot;item.align&quot;&gt;  
-        &lt;!--主要实现判断--&gt;
-      &lt;template slot-scope=&quot;scope&quot;&gt;
-        &lt;template v-if=&quot;addForm.weekName === scope.row.weekName&quot;&gt;
-          &lt;el-input type=&quot;text&quot; v-model=&quot;scope.row[item.prop]&quot; v-if=&quot;item.prop !== &apos;workType&apos; &amp;&amp; item.prop !== &apos;weekName&apos;&quot; @blur=&quot;handleBlur($event, scope.row)&quot;&gt;&lt;/el-input&gt;
-          &lt;el-select v-else-if=&quot;item.prop === &apos;workType&apos;&quot; v-model=&quot;scope.row[item.prop]&quot;&gt;
-            &lt;el-option
-              v-for=&quot;item in options&quot;
-              :key=&quot;item.value&quot;
-              :label=&quot;item.label&quot;
-              :value=&quot;item.value&quot;&gt;
-            &lt;/el-option&gt;
-          &lt;/el-select&gt;
-          &lt;span v-else&gt;{{ scope.row[item.prop] }}&lt;/span&gt;
-        &lt;/template&gt;
-        &lt;template v-else&gt;
-          &lt;span v-if=&quot;item.prop === &apos;weekName&apos;&quot;&gt;{{ scope.row[item.prop]}}&lt;/span&gt;
-          &lt;span v-else-if=&quot;item.prop === &apos;workType&apos;&quot;&gt;{{ scope.row.workType === 0 ? '工作日' : '节假日' }}&lt;/span&gt;
-          &lt;span v-else&gt;{{ scope.row[item.prop] }}&lt;/span&gt;
-        &lt;/template&gt;
-      &lt;/template&gt;
-    &lt;/el-table-column&gt;
-    &lt;el-table-column
-      label=&quot;操作&quot;
-      width=&quot;60px&quot;
-      align=&quot;center&quot;&gt;
-      &lt;template slot-scope=&quot;scope&quot;&gt;
-        &lt;el-button type=&quot;primary&quot; plain size=&quot;mini&quot; icon=&quot;iconfont icon-bianji&quot; circle title=&quot;修改&quot; @click.stop=&quot;handleEdit($event, scope.row, scope.$index)&quot;&gt;&lt;/el-button&gt;
-      &lt;/template&gt;
-    &lt;/el-table-column&gt;        
-  &lt;/el-table&gt;
-
-    &lt;script&gt;
-    methods: {
-        handleRowClick (row) {
-          this.addForm = {}
-          // this.handleBlur(row)
-        },
-        handleRowDblclick (row, event) {
-          event.stopPropagation()
-          event.preventDefault()
-          this.addForm = Utils.deepCopy(row)
-        },
-        // 调用接口
-        handleBlur (e, row) {
-        // 调用完成后将this.addForm = {}
-        }
-    }    
-    &lt;/script&gt;
-</code></pre>
-          
+<p>上代码。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/13/Elementui-ui表格实现双击编辑，并符合不同输入需求/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Ricesgui">
 <meta property="og:description" content="前言最近在跟后台对接口时遇到一个这样的问题，后台接口返回的JSON数据格式如下，而我在级联下拉框中选中后需要给后台传targetNumber字段，但是在分组里该字段是空的，不能通过简单的设置defaultprop来实现选中得到的东西。所以我想到了递归搜索返回并写了一个函数来实现他。 {     &amp;quot;value&amp;quot;: &amp;quot;1010&amp;quot;,     &amp;quot;label">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T13:29:56.865Z">
+<meta property="og:updated_time" content="2018-12-28T14:37:49.342Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="递归找到需要的某一项">
 <meta name="twitter:description" content="前言最近在跟后台对接口时遇到一个这样的问题，后台接口返回的JSON数据格式如下，而我在级联下拉框中选中后需要给后台传targetNumber字段，但是在分组里该字段是空的，不能通过简单的设置defaultprop来实现选中得到的东西。所以我想到了递归搜索返回并写了一个函数来实现他。 {     &amp;quot;value&amp;quot;: &amp;quot;1010&amp;quot;,     &amp;quot;label">
@@ -374,6 +374,7 @@
     ]
 }
 </code></pre><p>代码如下： </p>
+<a id="more"></a>
 <pre><code>&lt;template&gt;
     &lt;el-form :model=&quot;addForm&quot; 
       :rules=&quot;addRuleForm&quot; 
