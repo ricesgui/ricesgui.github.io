@@ -262,6 +262,161 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/17/将url截取为json/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaogui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/17/将url截取为json/" itemprop="url">将url截取为json</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T21:14:59+08:00">
+                2018-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/10/17/将url截取为json/" class="leancloud_visitors" data-flag-title="将url截取为json">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>主要就是将一个url截取成为json并在控制台输出</h1>
+
+<p>思路：一开始想要用正则表达式来匹配，后来想到一种更简单一点的处理方法就是利用js自带的split()处理函数，先将整串url以?分割开，取后半部分，再根据&amp;将不同变量拆分开来，最后根据=分割开，前部分为key,后半部分为value</p>
+
+<h1>代码如下：</h1>
+
+<pre><code>var url = &quot;https://www.baidu.com?key1=welcome&amp;key2=to&amp;key3=china&quot;
+function getQuery(url) {
+    if (url.indexOf(&quot;?&quot;)&gt;-1) {
+        var result = [];       
+        var paraStr = url.split(&quot;?&quot;)[1];
+        var para = paraStr.split(&quot;&amp;&quot;);
+        for (var i=0;i&lt;para.length;i++){        
+            var paraKey = para[i].split(&quot;=&quot;)[0];         
+            var paraValue = para[i].split(&quot;=&quot;)[1];
+            result.push({
+                key: paraKey,
+                value: paraValue
+            })
+        }
+        console.log(result)
+    }
+}
+getQuery(url)
+</code></pre><p>思路流程：”<a href="https://www.baidu.com?key1=welcome&amp;key2=to&amp;key3=china&quot;" target="_blank" rel="noopener">https://www.baidu.com?key1=welcome&amp;key2=to&amp;key3=china&quot;</a></p>
+<p>==&gt;key1=welcome&amp;key2=to&amp;key3=china<br>==&gt;key1=welcome key2=to key3=china<br>==&gt;[{key: key1, value: welcome},{key: key2,value: to},{key: key3,value: china}]</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/08/this emit带参数传递/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1611,142 +1766,6 @@ methods: {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/05/实现未知宽高元素垂直居中/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xiaogui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/05/实现未知宽高元素垂直居中/" itemprop="url">实现未知宽高元素垂直居中</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-05T21:02:06+08:00">
-                2018-09-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/09/05/实现未知宽高元素垂直居中/" class="leancloud_visitors" data-flag-title="实现未知宽高元素垂直居中">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p></p><h1>实现未知宽高元素垂直居中的几种方法</h1><p></p>
-<p><ol></ol></p>
-<li>方法1</li><br>思路：设置父级元素为table显示，子元素为table-cell,利用vertical-align：middle,实现水平居中。<br>优点：父级元素可以动态改变高度<br><img src="https://i.imgur.com/6vok5mD.png" alt=""><br><br>实现效果：<br><br><img src="https://i.imgur.com/F0HEylG.png" alt=""><br><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/09/05/实现未知宽高元素垂直居中/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1797,7 +1816,7 @@ methods: {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1905,7 +1924,7 @@ methods: {
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-star"></i>
   </span>
