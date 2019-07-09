@@ -262,6 +262,142 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/09/call和apply之间的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaogui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/09/call和apply之间的区别/" itemprop="url">call和apply之间的区别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-09T17:02:40+08:00">
+                2019-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/07/09/call和apply之间的区别/" class="leancloud_visitors" data-flag-title="call和apply之间的区别">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p></p><h1>前言</h1><br>最近在学习javascript的类与继承的时候发现一个新的问题，就是call()和apply()方法,就我们所知都是用于改变this的指向，然后我就联想到了它们之间有什么区别，因此有本文。<p></p>
+<p></p><h1>call()方法</h1><br>call()方法有两个参数，第一个参数是改变this指向，第二个参数是需要传的参数。<p></p>
+<pre><code>Person.call(this, name)
+</code></pre><p></p><h1>apply()方法</h1><br>apply()方法有一个必选参数，第二个参数是可选的，第一个参数也是改变this的指向，而第二个参数只能传一个实参且须是数组。<p></p>
+<pre><code>Person.prototype.apply(this);
+Person.apply(this, [name, age]);
+</code></pre><p></p><h1>两者之间的区别</h1><br>call()方法的第二个参数可以传递多个参数，实参必须要按照形参的个数和顺序进行传参。<br>apply()方法的第二个值只能传递一个参数而必须是数组。<p></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/02/js-深入理解事件流/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1610,144 +1746,6 @@ handleUpload (data) {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/06/运行项目时，报错项目路径Commandfailed/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xiaogui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/06/运行项目时，报错项目路径Commandfailed/" itemprop="url">运行项目时，报错项目路径Commandfailed.</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-06T19:29:08+08:00">
-                2018-11-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/11/06/运行项目时，报错项目路径Commandfailed/" class="leancloud_visitors" data-flag-title="运行项目时，报错项目路径Commandfailed.">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1>运行项目时，报错node_moduleschromedriver Command failed.</h1>
-
-<p>在运行公司的一个项目时，报错如下，<br><img src="https://i.imgur.com/kNFP5zk.png" alt=""></p>
-<p>大概意思就是那个路径下的chromedriver_win32.zip损坏了，需要重新下载好的替换到相应的路径下，</p>
-<p>下载路径：<a href="https://chromedriver.storage.googleapis.com/2.40/chromedriver_win32.zip" target="_blank" rel="noopener">https://chromedriver.storage.googleapis.com/2.40/chromedriver_win32.zip</a></p>
-<p>下载完后解压缩，放到对应路径即可</p>
-<p><img src="https://i.imgur.com/LP0st8n.png" alt=""></p>
-<p>解决啦。</p>
-<p><small>我不怕万人阻拦，我只怕自己投降</small></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1798,7 +1796,7 @@ handleUpload (data) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
