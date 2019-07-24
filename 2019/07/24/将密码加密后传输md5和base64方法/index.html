@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="单个输入框的 &amp;lt;el-date-picker    v-model=&amp;quot;value1&amp;quot;    type=&amp;quot;date&amp;quot;    placeholder=&amp;quot;选择日期&amp;quot;    :picker-options=&amp;quot;pickerOptions0&amp;quot;&amp;gt; &amp;lt;/el-date-picker&amp;gt; 情景1: 设置选择今天以及">
+<meta name="description" content="前言最近在用vue+vux+es6+webpack搭建一个简单的移动端会议室预订系统，在做登录页面的时候遇到要将密码加密成md5格式。这里做一个简单的记录。 md5散列根据官方文档https://doc.vux.li/zh-CN/tools/md5.html 里面标注，直接在你用到相关的函数的时候引入即可。 用法： import { md5 } from &amp;apos;vux&amp;apos;;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ElemenUI时间日期组件">
-<meta property="og:url" content="http://yoursite.com/2018/10/26/ElemenUI时间日期组件/index.html">
+<meta property="og:title" content="将密码加密后传输md5和base64方法">
+<meta property="og:url" content="http://yoursite.com/2019/07/24/将密码加密后传输md5和base64方法/index.html">
 <meta property="og:site_name" content="Ricesgui">
-<meta property="og:description" content="单个输入框的 &amp;lt;el-date-picker    v-model=&amp;quot;value1&amp;quot;    type=&amp;quot;date&amp;quot;    placeholder=&amp;quot;选择日期&amp;quot;    :picker-options=&amp;quot;pickerOptions0&amp;quot;&amp;gt; &amp;lt;/el-date-picker&amp;gt; 情景1: 设置选择今天以及">
+<meta property="og:description" content="前言最近在用vue+vux+es6+webpack搭建一个简单的移动端会议室预订系统，在做登录页面的时候遇到要将密码加密成md5格式。这里做一个简单的记录。 md5散列根据官方文档https://doc.vux.li/zh-CN/tools/md5.html 里面标注，直接在你用到相关的函数的时候引入即可。 用法： import { md5 } from &amp;apos;vux&amp;apos;;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-26T14:10:45.145Z">
+<meta property="og:updated_time" content="2019-07-24T02:47:55.032Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ElemenUI时间日期组件">
-<meta name="twitter:description" content="单个输入框的 &amp;lt;el-date-picker    v-model=&amp;quot;value1&amp;quot;    type=&amp;quot;date&amp;quot;    placeholder=&amp;quot;选择日期&amp;quot;    :picker-options=&amp;quot;pickerOptions0&amp;quot;&amp;gt; &amp;lt;/el-date-picker&amp;gt; 情景1: 设置选择今天以及">
+<meta name="twitter:title" content="将密码加密后传输md5和base64方法">
+<meta name="twitter:description" content="前言最近在用vue+vux+es6+webpack搭建一个简单的移动端会议室预订系统，在做登录页面的时候遇到要将密码加密成md5格式。这里做一个简单的记录。 md5散列根据官方文档https://doc.vux.li/zh-CN/tools/md5.html 里面标注，直接在你用到相关的函数的时候引入即可。 用法： import { md5 } from &amp;apos;vux&amp;apos;;">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/26/ElemenUI时间日期组件/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/07/24/将密码加密后传输md5和base64方法/"/>
 
 
 
 
 
-  <title>ElemenUI时间日期组件 | Ricesgui</title>
+  <title>将密码加密后传输md5和base64方法 | Ricesgui</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/26/ElemenUI时间日期组件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/24/将密码加密后传输md5和base64方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xiaogui">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ElemenUI时间日期组件</h1>
+          <h1 class="post-title" itemprop="name headline">将密码加密后传输md5和base64方法</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-26T22:10:28+08:00">
-                2018-10-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-24T10:38:08+08:00">
+                2019-07-24
               </time>
             
 
@@ -309,7 +309,7 @@
 
           
           
-             <span id="/2018/10/26/ElemenUI时间日期组件/" class="leancloud_visitors" data-flag-title="ElemenUI时间日期组件">
+             <span id="/2019/07/24/将密码加密后传输md5和base64方法/" class="leancloud_visitors" data-flag-title="将密码加密后传输md5和base64方法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                </span>
@@ -344,120 +344,14 @@
       
 
       
-        <p>单个输入框的</p>
-<pre><code>&lt;el-date-picker
-   v-model=&quot;value1&quot;
-   type=&quot;date&quot;
-   placeholder=&quot;选择日期&quot;
-   :picker-options=&quot;pickerOptions0&quot;&gt;
-&lt;/el-date-picker&gt;
-</code></pre><p>情景1: 设置选择今天以及今天之后的日期</p>
-<pre><code>data (){
-   return {
-       pickerOptions0: {
-          disabledDate(time) {
-            return time.getTime() &lt; Date.now() - 8.64e7;
-          }
-        },  
-   }     
-}
-</code></pre><p>情景2: 设置选择今天以及今天以前的日期</p>
-<pre><code>data (){
-   return {
-       pickerOptions0: {
-          disabledDate(time) {
-            return time.getTime() &gt; Date.now() - 8.64e6
-          }
-        },  
-   }     
-}
-</code></pre><a id="more"></a>
-<p>情景3: 设置选择今天之后的日期（不能选择当天时间）</p>
-<pre><code>data (){
-   return {
-       pickerOptions0: {
-          disabledDate(time) {
-            return time.getTime() &lt; Date.now();
-          }
-        },  
-   }     
-}
-</code></pre><p>情景4: 设置选择今天之前的日期（不能选择当天）</p>
-<pre><code>data (){
-   return {
-       pickerOptions0: {
-          disabledDate(time) {
-            return time.getTime() &gt; Date.now();
-          }
-        },  
-   }     
-}
-</code></pre><p>情景5: 设置选择三个月之前到今天的日期</p>
-<pre><code>data (){
-   return {
-       pickerOptions0: {
-          disabledDate(time) {
-            let curDate = (new Date()).getTime();
-            let three = 90 * 24 * 3600 * 1000;
-            let threeMonths = curDate - three;
-            return time.getTime() &gt; Date.now() || time.getTime() &lt; threeMonths;;
-          }
-        },  
-   }     
-}
-</code></pre><p>两个输入框</p>
-<pre><code>&lt;el-date-picker
-       v-model=&quot;value1&quot;
-       type=&quot;date&quot;
-       placeholder=&quot;开始日期&quot;
-       :picker-options=&quot;pickerOptions0&quot;&gt;
-&lt;/el-date-picker&gt;
-&lt;el-date-picker
-       v-model=&quot;value2&quot;
-       type=&quot;date&quot;
-       placeholder=&quot;结束日期&quot;
-       :picker-options=&quot;pickerOptions1&quot;&gt;
-&lt;/el-date-picker&gt;
-</code></pre><p>情景1: 限制结束日期不能小于开始日期（限制到期日期不能小于生产日期）</p>
-<pre><code>data(){
-    return {
-         pickerOptions0: {
-                disabledDate: (time) =&gt; {
-                    if (this.value2 != &quot;&quot;) {
-                        return time.getTime() &lt; Date.now() || time.getTime() &gt; this.value2;
-                    } else {
-                        return time.getTime() &lt; Date.now();
-                    }
-
-                }
-            },
-            pickerOptions1: {
-                disabledDate: (time) =&gt; {
-                    return time.getTime() &lt; this.value1 || time.getTime() &gt; Date.now();
-                }
-            },
-    }      
-}
-</code></pre><p>情景2: 限制结束日期不能大于开始日期（在许多博客上都看到了这个思路，个人觉得逻辑有点问题，结束日期应该大于开始日期，而不应该时不大于。）</p>
-<pre><code>data(){
-        return {
-             pickerOptions0: {
-                    disabledDate: (time) =&gt; {
-                        if (this.value2 != &quot;&quot;) {
-                            return time.getTime() &gt; Date.now() || time.getTime() &gt; this.value2;
-                        } else {
-                            return time.getTime() &gt; Date.now();
-                        }
-
-                    }
-                },
-                pickerOptions1: {
-                    disabledDate: (time) =&gt; {
-                        return time.getTime() &lt; this.value1 || time.getTime() &gt; Date.now();
-                    }
-                },
-        }      
-    }
+        <p></p><h1>前言</h1><br>最近在用vue+vux+es6+webpack搭建一个简单的移动端会议室预订系统，在做登录页面的时候遇到要将密码加密成md5格式。这里做一个简单的记录。<p></p>
+<p></p><h1>md5散列</h1><br>根据官方文档<a href="https://doc.vux.li/zh-CN/tools/md5.html" title="Vux官方文档" target="_blank" rel="noopener">https://doc.vux.li/zh-CN/tools/md5.html</a> 里面标注，直接在你用到相关的函数的时候引入即可。<p></p>
+<pre><code>用法： import { md5 } from &apos;vux&apos;;
+      md5(&apos;password&apos;);
+</code></pre><p></p><h1>base64</h1><br>同理，直接引入即可。可以进行加解密操作。<p></p>
+<pre><code>import { base64 } from &apos;vux&apos;
+base64.encode(&apos;VUX&apos;)
+base64.decode(&apos;VlVY&apos;)
 </code></pre>
       
     </div>
@@ -482,8 +376,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/25/实现过渡效果/" rel="next" title="实现过渡效果">
-                <i class="fa fa-chevron-left"></i> 实现过渡效果
+              <a href="/2019/07/09/call和apply之间的区别/" rel="next" title="call和apply之间的区别">
+                <i class="fa fa-chevron-left"></i> call和apply之间的区别
               </a>
             
           </div>
@@ -491,10 +385,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/27/elementui时间组件结束日期不能小于生产日期/" rel="prev" title="elementui时间组件结束日期不能小于生产日期">
-                elementui时间组件结束日期不能小于生产日期 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -551,8 +441,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -659,6 +558,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">md5散列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">base64</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
