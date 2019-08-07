@@ -200,6 +200,26 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-page">
           <a href="/github" rel="section">
             
@@ -248,6 +268,206 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/24/ElementUI多选框，选中时传id/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaogui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/24/ElementUI多选框，选中时传id/" itemprop="url">ElementUI多选框，选中时传id</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-24T17:33:51+08:00">
+                2018-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/10/24/ElementUI多选框，选中时传id/" class="leancloud_visitors" data-flag-title="ElementUI多选框，选中时传id">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近需要完成一个这样的效果，</p>
+<p><img src="https://i.imgur.com/tidXikp.png" alt=""></p>
+<p>在多选框中选中后需要的不是label而是传相应的id，看了一下官方文档并没有这样的写法，之前select选择器的时候就有了label和value互相切换的操作，所以借鉴一下，没想到成了，代码如下。</p>
+<pre><code>&lt;template&gt;
+  &lt;div class=&quot;layerManegement&quot;&gt;
+  &lt;div class=&quot;headAdd&quot;&gt;选择图层添加或移除&lt;/div&gt;
+  &lt;hr&gt;
+  &lt;el-checkbox-group v-model=&quot;checkedOptions&quot; @change=&quot;handleCheckedCitiesChange&quot;&gt;
+    &lt;el-checkbox v-for=&quot;item in layers&quot; :label=&quot;item.value&quot; :key=&quot;item.value&quot;&gt;{{item.label}}&lt;/el-checkbox&gt;
+  &lt;/el-checkbox-group&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import Api from &apos;@/api/Index.js&apos;
+export default {
+  name: &apos;layerManegement&apos;,
+  data () {
+    return {
+      checkAll: false,
+      checkedOptions: [], 
+      layers: [{
+        value: &apos;&apos;,
+        label: &apos;&apos;
+      }],
+      isIndeterminate: true
+    }
+  },
+  mounted () {
+    this.findLayerList() // 调用接口
+  },
+  methods: {
+    handleCheckedCitiesChange (value) {
+      let checkedCount = value.length
+      this.checkAll = checkedCount === this.layers.length
+      this.isIndeterminate = checkedCount &gt; 0 &amp;&amp; checkedCount &lt; this.layers.length
+      this.$emit(&apos;handle-change-layer&apos;, this.checkedOptions)  //我这里需要将值传给父组件所以用了emit
+    },
+    findLayerList () {
+      Api.findLayerList()
+        .then(data =&gt; {
+          if (data.status === 0) { 
+            this.layers = [] 
+            this.layers = data.data                
+          } else {
+            this.$message({
+              type: &apos;warning&apos;,
+              message: &apos;获取数据失败&apos;
+            })
+          }
+        })
+        .catch(res =&gt; {
+          this.$message({
+            type: &apos;error&apos;,
+            message: &apos;请求数据失败&apos;
+          })
+        })
+    }
+  }
+}
+
+&lt;/script&gt;
+&lt;style lang=&quot;scss&quot;&gt;
+.layerManegement {
+  width: 100%;
+  .headAdd {
+    color: white;
+  }
+
+}
+
+&lt;/style&gt;
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1573,146 +1793,6 @@ getQuery(url)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/15/Vue-ElementUI实现对话框父子组件通讯/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xiaogui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/15/Vue-ElementUI实现对话框父子组件通讯/" itemprop="url">Vue+ElementUI实现对话框父子组件通讯</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-15T11:43:30+08:00">
-                2018-09-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/09/15/Vue-ElementUI实现对话框父子组件通讯/" class="leancloud_visitors" data-flag-title="Vue+ElementUI实现对话框父子组件通讯">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1>前言</h1><br><i>在使用ElementUI官网的对话框时在同一个页面调用没毛病，但是想把它独立出来成为一个可重复用的组件的时候，就会发现弹出有问题，即使我们已经在子组件里设置了一个props监听状态。可是实现的效果如图，会造成框架自身带有的右上角×回调有问题，如下图：<br><img src="https://i.imgur.com/o4d9a29.png" alt=""><br></i><br>报错，在子组件里修改了父组件的值，在这里我们应该给父组件提供一个信号，让父组件去修改子组件的值才行<br>在vue2.0中子组件中不能修改父组件的状态，否则在控制台中会报错。<br><br><h1>解决方法:</h1>
-
-<pre><code>在子组件里添加回调函数监听:before-close=&quot;cancelRegister&quot;
-
-在父组件里添加监听v-if=&quot;addrulesonoff&quot;，
-当需要关闭对话框时，在cancelRegister函数里修改addrulesonoff的状态并将其传给父组件，让父组件去修改子组件的props值就可以啦
-</code></pre><p>详细代码：<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/09/15/Vue-ElementUI实现对话框父子组件通讯/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1763,7 +1843,7 @@ getQuery(url)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1776,7 +1856,7 @@ getQuery(url)
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
