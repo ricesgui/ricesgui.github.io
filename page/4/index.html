@@ -262,6 +262,435 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/13/路由跳转/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaogui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/13/路由跳转/" itemprop="url">路由跳转</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-13T22:46:32+08:00">
+                2018-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/13/路由跳转/" class="leancloud_visitors" data-flag-title="路由跳转">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p></p><h1>前言</h1><br><i>搭建网站时，一般都会遇到页面跳转需要传递参数的问题，我研究了一下,总结出以下三种方法</i><p></p>
+<p></p><h1><li>使用路由带参数传递数据</li></h1><br>A页面代码<p></p>
+<pre><code>handleHistory(e, rowData) {
+    this.ruleid = rowData.id
+    this.$router.push({
+      name: &apos;AlarmHistory&apos;,
+      params: {       
+        ruleid: this.ruleid
+      }
+    })
+},
+1.name  -&gt; 是要跳转的路由路径，在router文件里配置，也可以用path进行路径导航，但是path不能进行参数传递
+2.params -&gt; 是要携带的参数，参数形式为 key: value 若参数数目过多时，建议考虑本地存储
+3.参数也可以采用query ,但是这个参数会显示在url上，容易被误改导致出错。通过query传递参数，页面刷新后，数据不会消失。但是params刷新后会消失
+</code></pre><p>B页面代码</p>
+<pre><code>created() {
+this.ruleid = this.$route.params.ruleid
+this.selectHistoryByPageList(this.currentPage, this.pageSize, this.ruleid)
+  },
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/13/路由跳转/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/12/快速入门openlayer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaogui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/12/快速入门openlayer/" itemprop="url">快速入门openlayer</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-12T21:24:22+08:00">
+                2018-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/12/快速入门openlayer/" class="leancloud_visitors" data-flag-title="快速入门openlayer">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1>前言</h1><br><i>背景:最近在做的一个项目需要接触到地图，所以了解到了OpenLayer,接下来让我们从头开始根据官方文档来运行一个简单的地图啦（讲真，全英文档看的有点犯困）</i><br><br><br>以下操作是基于你的电脑已经安装好vue搭建环境的，如果还没有，推荐看下面这篇文章<br><a href="https://ricesgui.github.io/2018/09/11/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAvue%E9%A1%B9%E7%9B%AE/" target="_blank" rel="noopener">https://ricesgui.github.io/2018/09/11/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAvue%E9%A1%B9%E7%9B%AE/</a><br>官方文档的操作是建立在一个空项目的基础上，所以我们先来搭建一个空项目先啦！官方文档：<a href="http://openlayers.org/en/latest/doc/tutorials/bundle.html" target="_blank" rel="noopener">http://openlayers.org/en/latest/doc/tutorials/bundle.html</a><br><h1>首先</h1>
+
+<pre><code>vue init webpack testol
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/12/快速入门openlayer/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/11/Vue项目搭建报错/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaogui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/11/Vue项目搭建报错/" itemprop="url">Vue项目搭建报错</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-11T19:57:15+08:00">
+                2018-09-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/11/Vue项目搭建报错/" class="leancloud_visitors" data-flag-title="Vue项目搭建报错">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><i>现在遇到的坑都是以后的财富</i></p>
+<p>“Unexpected end of JSON input while parsing near···”错误解决方案</p>
+<p><img src="https://i.imgur.com/ExoGAja.png" alt=""></p>
+<p>背景：之前在本机搭建过一次项目，然后删掉了，可能是之前安装的缓存还在对后续有影响</p>
+<p>解决方案：</p>
+<p>先清除缓存，再重新安装：</p>
+<pre><code>npm cache clean --force
+</code></pre><p>安装： </p>
+<pre><code>npm install
+</code></pre><p>即可解决问题。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/11/从零搭建一个vue项目/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1370,472 +1799,6 @@ this.$refs[&apos;child&apos;]
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/27/vuejs 实现按钮点击后切换颜色/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xiaogui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/27/vuejs 实现按钮点击后切换颜色/" itemprop="url">blog14</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-27T20:44:51+08:00">
-                2018-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/27/vuejs 实现按钮点击后切换颜色/" class="leancloud_visitors" data-flag-title="blog14">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p></p><h1>vuejs 实现按钮点击后切换颜色</h1><p></p>
-<p></p><p>在网页交互过程中，我们总需要有一些页面变化来与提醒用户他已经触发了什么东西，但不能总依赖于后台返回给我们的数据再进行变化，所以我们前端可以直接改变页面的样式，来提醒用户即可。</p><p></p>
-<p></p><p>以下是使用vue实现的，点击按钮后相应按钮变黄色，并且默认选中第一个按钮.若不想有默认选中的按钮，只需要将changgeColor的值设置为-1即可。</p><br>代码： <p></p>
-<pre><code>&lt;template&gt;
-&lt;el-button
-    v-for=&quot;(item, index) in timeBtnArr&quot; 
-    :key=&quot;item.name&quot;
-    @click=&quot;handleTimeBtnClick(item, index)&quot; 
-    :class=&quot;{isClick:changeTimeColor === index}&quot;
-    size=&quot;mini&quot;       
-    class=&quot;btn&quot;&gt;
-    {{ item.name }}       
-&lt;/el-button&gt;
-&lt;/template&gt;
-
-&lt;script&gt;
-export default {
-     data() {
-        return{ 
-             changeColor: 0
-            }
-    methods: {
-        handleTimeBtnClick(item, index) {
-        this.changeColor = index
-            }
-&lt;/script&gt;
-
-&lt;style&gt;
-.isClick {
-    background-color: yellow;
-}
-&lt;/style&gt;
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/25/blog13/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xiaogui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/25/blog13/" itemprop="url">blog13</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-25T21:01:22+08:00">
-                2018-07-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/07/25/blog13/" class="leancloud_visitors" data-flag-title="blog13">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <font style="color:green">&nbsp;&nbsp;&nbsp;当你的才华还撑不起你的野心时，那就好好学习</font>
-
-<p>最近在做一个用vue写的项目，在检查的时候报错Duplicate keys detected: ‘一个url’. This may cause an update error</p>
-<p></p><p>这个问题好像不会影响项目的功能使用，但是有错误就要去解决。</p><br>由于在我的项目里用循环表，v-for的时候就会绑定一个key值，但是报错的原因是因为我们这里的key值有重复，<p></p>
-<pre><code>&lt;div v-if=&quot;item.prop === &apos;urls&apos;&quot;&gt;
-    &lt;p v-for=&quot;value in scope.row.urls&quot; :key=&quot;value&quot;&gt;{{value}}&lt;/p&gt;
-&lt;/div&gt;
-</code></pre><h3>由于key值是必须唯一的，如果重复就会报错<br>可以把key值改为index，就可以避免这个情况,修改方法如下所示：</h3>
-
-<pre><code>&lt;div v-if=&quot;item.prop === &apos;urls&apos;&quot;&gt;
-    &lt;p v-for=&quot;(value, index) in scope.row.urls&quot; :key=&quot;index&quot;&gt;{{value}}&lt;/p&gt;
-&lt;/div&gt;
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/17/blog12/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xiaogui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/17/blog12/" itemprop="url">前端面试题小结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-17T21:28:30+08:00">
-                2018-07-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/07/17/blog12/" class="leancloud_visitors" data-flag-title="前端面试题小结">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-
-<h3><li>js 字符串操作函数</li></h3>
-
-<p>concat() – 将两个或多个字符的文本组合起来，返回一个新的字符串。</p>
-<p>join() 方法用于把数组中的所有元素放入一个字符串。</p>
-<p>indexOf() – 返回字符串中一个子串第一处出现的索引。如果没有匹配项，返回 -1 。</p>
-<p>charAt() – 返回指定位置的字符。</p>
-<p>lastIndexOf() – 返回字符串中一个子串最后一处出现的索引，如果没有匹配项，返回 -1 。</p>
-<p>match() – 检查一个字符串是否匹配一个正则表达式。</p>
-<p>substr() 函数 – 返回从string的startPos位置，长度为length的字符串</p>
-<p>substring() – 返回字符串的一个子串。传入参数是起始位置和结束位置。</p>
-<font color="red">slice() – 提取字符串的一部分，并返回一个新字符串。</font>
-
-<p>replace() – 用来查找匹配一个正则表达式的字符串，然后使用新字符串代替匹配的字符串。</p>
-<p>search() – 执行一个正则表达式匹配查找。如果查找成功，返回字符串中匹配的索引值。否则返回 -1 。</p>
-<font color="red">split() – 通过将字符串划分成子串，将一个字符串做成一个字符串数组。</font>
-
-<p>length – 返回字符串的长度，所谓字符串的长度是指其包含的字符的个数。</p>
-<p>toLowerCase() – 将整个字符串转成小写字母。</p>
-<p>toUpperCase() – 将整个字符串转成大写字母。</p>
-<h3><li>js中==和===区别</li></h3><br>简单来说： == 代表相同， ===代表严格相同, 为啥这么说呢，<br><br>这么理解： 当进行双等号比较时候：先检查两个操作数数据类型，如果相同， 则进行===比较， 如果不同， 则愿意为你进行一次类型转换， 转换成相同类型后再进行比较， 而===比较时， 如果类型不同，直接就是false.<br><br>操作数1 == 操作数2，  操作数1 === 操作数2<br><br>比较过程：<br><br>　　双等号==：<br><br>　　（1）如果两个值类型相同，再进行三个等号(===)的比较<br><br>　　（2）如果两个值类型不同，也有可能相等，需根据以下规则进行类型转换在比较：<br><br>　　　　1）如果一个是null，一个是undefined，那么相等<br><br>　　　　2）如果一个是字符串，一个是数值，把字符串转换成数值之后再进行比较<br><br>　　三等号===:<br><br>　　（1）如果类型不同，就一定不相等<br><br>　　（2）如果两个都是数值，并且是同一个值，那么相等；如果其中至少一个是NaN，那么不相等。（判断一个值是否是NaN，只能使用isNaN()来判断）<br><br>　　（3）如果两个都是字符串，每个位置的字符都一样，那么相等，否则不相等。<br><br>　　（4）如果两个值都是true，或是false，那么相等<br><br>　　（5）如果两个值都引用同一个对象或是函数，那么相等，否则不相等<br><br>　　（6）如果两个值都是null，或是undefined，那么相等<br><br> <h3><li>js中push(),pop(),unshift(),shift()的用法小结</li></h3><br>1)、这两组同为对数组的操作，并且会改变数组的本身的长度及内容。<br><br>　　不同的是 push()、pop() 是从数组的尾部进行增减，unshift()、shift() 是从数组的头部进行增减。<br>　例子:var arr = [1, 2];<br><br>2)、push()和unshift()<br><br>　　向数组的 尾部/头部 添加若干元素，并返回 数组的 新长度；<br><br>　　arr.push(3,4)；         //返回 arr 的新长度 4<br><br>　　arr ;                        // arr = [1,2,3,4];<br><br>　　arr.unshift(0,0.5);    // 返回 arr 的新长度 6<br><br>　　arr ;                       // arr = [0,0.5,1,2,3,4];<br><br>3)、pop()和shift()<br><br>　　从数组的 尾部/头部 删除1个元素(删且只删除1个)，并返回 被删除的元素；空数组是继续删除，不报错，但返回undefined；<br><br>　　arr.pop();　　　　　　//返回 4；<br><br>　　arr ;　　　　　　　　  // arr = [0,0.5,1,2,3];<br><br>　　arr.pop();　　　　　　//返回 3；<br><br>　　arr ;　　　　　　　　 // arr = [0,0.5,1,2];<br><br>　　arr.shift()；　　　　  // 返回 0 ；<br><br>　　arr ;　　　　　　　　// arr = [0.5,1,2]<br><br>　　PS: pop()和shift() 不接受传参，即使传了参数也没什么卵用~~；<br><br>　　arr.pop(3) ;           // 返回 2；永远返回最后一个；<br><br>　　arr ; 　　　　　　　// arr = [0.5,1];<br><br>　　arr.shift(1);　　　　// 返回 0.5; 永远返回第一个；<br><br>　　arr ;　　　　　　　　// arr = [1];<br><br>　　arr.pop() ; 　　　　// 返回 1；<br><br>　　arr ;　　　　　　　　// arr = [];<br><br>　　arr.shift()　　　　　// 返回 undefined；<br><br>　　arr ;　　　　　　　　// arr = [];<br><br><h3><li>link和@import的区别</li></h3>
-
-<p>link属于html标签，而@import是css提供的。</p>
-<p>页面被加载时，link会同时被加载，而@import引用的css会等到页面加载结束后加载。</p>
-<p>link是html标签，因此没有兼容性，而@import只有IE5以上才能识别。</p>
-<p>link方式样式的权重高于@import的。</p>
-<p>link支持使用js控制DOM改变样式，@import不支持。‘</p>
-<p></p><h3><li>编写一个方法 去掉一个数组的重复元素</li></h3><br>方法一：<p></p>
-<p>var arr = [0,2,3,4,4,0,2];<br>var obj = {};<br>var tmp = [];<br>for(var i = 0 ;i&lt; arr.length;i++){<br>   if( !obj[arr[i]] ){<br>      obj[arr[i]] = 1;<br>      tmp.push(arr[i]);<br>   }<br>}<br>console.log(tmp);<br>结果如下： [0, 2, 3, 4]</p>
-<p> 方法二：</p>
-<p>var arr = [2,3,4,4,5,2,3,6],<br>   arr2 = [];<br>for(var i = 0;i&lt; arr.length;i++){<br>    if(arr2.indexOf(arr[i]) &lt; 0){<br>        arr2.push(arr[i]);<br>    }<br>}<br>console.log(arr2);<br>结果为：[2, 3, 4, 5, 6]</p>
-<p> 方法三：</p>
-<p>var arr = [2,3,4,4,5,2,3,6];<br>var arr2 = arr.filter(function(element,index,self){<br>return self.indexOf(element) === index;<br>});<br>console.log(arr2);</p>
-<p>结果为：[2, 3, 4, 5, 6]</p>
-</ol>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1886,7 +1849,7 @@ export default {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
