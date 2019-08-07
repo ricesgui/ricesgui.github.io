@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Vue," />
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="前言在项目中有表单提交的时候，用户一般填了数据之后返回上一个页面再进入时不希望已填数据丢失，这时候就需要对页面进行状态保持。 实现原理主要实现原理，状态保持的路由不会执行生命周期的钩子函数，只有第一次进入页面会执行钩子函数。actived :这也是一个钩子函数，keepAlive状态保持的页面中生命周期的钩子函数不会触发，但是会触发actived钩子函数，那么这样可操作性就很大了。 具体实现代码A">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue keepAlive 状态保持">
 <meta property="og:url" content="http://yoursite.com/2019/08/07/Vue-keepAlive-状态保持/index.html">
 <meta property="og:site_name" content="Ricesgui">
 <meta property="og:description" content="前言在项目中有表单提交的时候，用户一般填了数据之后返回上一个页面再进入时不希望已填数据丢失，这时候就需要对页面进行状态保持。 实现原理主要实现原理，状态保持的路由不会执行生命周期的钩子函数，只有第一次进入页面会执行钩子函数。actived :这也是一个钩子函数，keepAlive状态保持的页面中生命周期的钩子函数不会触发，但是会触发actived钩子函数，那么这样可操作性就很大了。 具体实现代码A">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-07T07:11:16.902Z">
+<meta property="og:updated_time" content="2019-08-07T08:55:22.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue keepAlive 状态保持">
 <meta name="twitter:description" content="前言在项目中有表单提交的时候，用户一般填了数据之后返回上一个页面再进入时不希望已填数据丢失，这时候就需要对页面进行状态保持。 实现原理主要实现原理，状态保持的路由不会执行生命周期的钩子函数，只有第一次进入页面会执行钩子函数。actived :这也是一个钩子函数，keepAlive状态保持的页面中生命周期的钩子函数不会触发，但是会触发actived钩子函数，那么这样可操作性就很大了。 具体实现代码A">
@@ -406,6 +407,12 @@ export const reserverRoom = {
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
+          
+        </div>
+      
 
       
       
@@ -521,10 +528,10 @@ export const reserverRoom = {
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">6</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
