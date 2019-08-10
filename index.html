@@ -272,6 +272,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/markdown-语法总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaogui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/10/markdown-语法总结/" itemprop="url">markdown 语法总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-10T22:10:30+08:00">
+                2019-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/08/10/markdown-语法总结/" class="leancloud_visitors" data-flag-title="markdown 语法总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在每一个项目中都会看到有一个README.md文件，用来说明如何初始化创建这个项目。所以了解和学习一下markdown语法也是有必要的呀。下面是总结的基础md语法。</p>
+<h2 id="基本符号-gt"><a href="#基本符号-gt" class="headerlink" title="基本符号 * - +. &gt;"></a>基本符号 * - +. &gt;</h2><p>基本上所有的markdown标记都是基于这四个符号或组合，需要注意的是，如果以基本符号开头的标记，注意基本符号后有一个用于分割标记符和内容的空格。</p>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>前面带#号，后面带文字，分别表示h1-h6,只到h6。</p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><ol>
+<li>无序列表<br> //形式一<ul>
+<li>a</li>
+<li>b</li>
+<li>c<br>//形式二</li>
+</ul>
+<ul>
+<li>d</li>
+<li>e</li>
+<li>f<br>//形式三</li>
+</ul>
+<ul>
+<li>g</li>
+<li>h</li>
+<li>i</li>
+</ul>
+</li>
+<li>有序列表<br> //正常形式<ol>
+<li>abc</li>
+<li>bcd</li>
+<li>cde<br>//错序效果</li>
+<li>fgh</li>
+<li>ghi</li>
+<li>hij</li>
+</ol>
+</li>
+</ol>
+<p>列表可以嵌套，使用时在嵌套列表前按 tab 或 空格 来缩进,去控制列表的层数</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/10/markdown-语法总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/移动端媒体查询适配/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -360,41 +524,41 @@
 @media screen and (orientation: landscape) {
     /*横屏 css*/
 }
-@media screen and (min-width:1366px){
+@media screen and (min-width:1366px) {
     /*pc端 css*/
 }
 
 /*iphone 5/5s/5se */
-@media screen and (max-width:569px){
+@media screen and (max-width:569px) {
     top: 7%;
     left: 18%;
 }
 /*iphone 6/7/8 */
-@media screen and (min-width:569px) and (max-width:668px){
+@media screen and (min-width:569px) and (max-width:668px) {
     top: 12%;
     left: 20%;
 }
 /*iphone 6p/7p/8p */
-@media screen and (min-width:668px) and (max-width:737px){
+@media screen and (min-width:668px) and (max-width:737px) {
     top: 14%;
     left: 20%;
 }
 /*iphone x */
-@media screen and (min-width:737px) and (max-width:813px){
+@media screen and (min-width:737px) and (max-width:813px) {
     top: 12%;
     left: 21%;
 }
 /*ipad*/
-@media screen and (min-width:813px) and (max-width:1025px){
+@media screen and (min-width:813px) and (max-width:1025px) {
     top: 22%;
     left: 21%;
 }
 /*ipad pro*/
-@media screen and (min-width:1024px){
+@media screen and (min-width:1024px) {
     top: 25%;
     left: 21%;
 }
-</code></pre><p>参考链接：<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries</a></p>
+</code></pre><p>参考链接: <a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries</a></p>
 
           
         
@@ -551,8 +715,7 @@
 
       
         
-          
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  代码规范是对每一个程序员来说非常重要的一个好习惯，所以前端部分采用了Eslint来进行代码规范检验。</p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  代码规范是对每一个程序员来说非常重要的一个好习惯，所以前端部分采用了Eslint来进行代码规范检验。</p>
 <pre><code>/* eslint-disable */
 忽略整个文件的warning
 
@@ -569,152 +732,14 @@
 
 // eslint-disable-line
 用于忽略当行的warning
-
-常用：
-&apos;rules&apos;: {
-  &quot;comma-dangle&quot;: [&quot;error&quot;, &quot;never&quot;], //是否允许对象中出现结尾逗号
-  &quot;no-cond-assign&quot;: 2, //条件语句的条件中不允许出现赋值运算符
-  &quot;no-console&quot;: 2, //不允许出现console语句
-  &quot;no-constant-condition&quot;: 2, //条件语句的条件中不允许出现恒定不变的量
-  &quot;no-control-regex&quot;: 2, //正则表达式中不允许出现控制字符
-  &quot;no-debugger&quot;: 2, //不允许出现debugger语句
-  &quot;no-dupe-args&quot;: 2, //函数定义的时候不允许出现重复的参数
-  &quot;no-dupe-keys&quot;: 2, //对象中不允许出现重复的键
-  &quot;no-duplicate-case&quot;: 2, //switch语句中不允许出现重复的case标签
-  &quot;no-empty&quot;: 2, //不允许出现空的代码块
-  &quot;no-empty-character-class&quot;: 2, //正则表达式中不允许出现空的字符组
-  &quot;no-ex-assign&quot;: 2, //在try catch语句中不允许重新分配异常变量
-  &quot;no-extra-boolean-cast&quot;: 2, //不允许出现不必要的布尔值转换
-  &quot;no-extra-parens&quot;: 0, //不允许出现不必要的圆括号
-  &quot;no-extra-semi&quot;: 2, //不允许出现不必要的分号
-  &quot;no-func-assign&quot;: 2, //不允许重新分配函数声明
-  &quot;no-inner-declarations&quot;: [&quot;error&quot;, &quot;functions&quot;], //不允许在嵌套代码块里声明函数
-  &quot;no-invalid-regexp&quot;: 2, //不允许在RegExp构造函数里出现无效的正则表达式
-  &quot;no-irregular-whitespace&quot;: 2, //不允许出现不规则的空格
-  &quot;no-negated-in-lhs&quot;: 2, //不允许在in表达式语句中对最左边的运算数使用取反操作
-  &quot;no-obj-calls&quot;: 2, //不允许把全局对象属性当做函数来调用
-  &quot;no-regex-spaces&quot;: 2, //正则表达式中不允许出现多个连续空格
-  &quot;quote-props&quot;: 2, //对象中的属性名是否需要用引号引起来
-  &quot;no-sparse-arrays&quot;: 2, //数组中不允许出现空位置
-  &quot;no-unreachable&quot;: 2, //在return，throw，continue，break语句后不允许出现不可能到达的语句
-  &quot;use-isnan&quot;: 2, //要求检查NaN的时候使用isNaN()
-  &quot;valid-jsdoc&quot;: [&quot;error&quot;, {
-      &quot;requireReturn&quot;: false,
-      &quot;requireParamDescription&quot;: false,
-      &quot;requireReturnDescription&quot;: true
-  }], //强制JSDoc注释
-  &quot;valid-typeof&quot;: [&quot;error&quot;, {
-      &quot;requireStringLiterals&quot;: true
-  }], //在使用typeof表达式比较的时候强制使用有效的字符串
-  &quot;block-scoped-var&quot;: 2, //将变量声明放在合适的代码块里
-  &quot;complexity&quot;: 0, //限制条件语句的复杂度
-  &quot;consistent-return&quot;: 2, //无论有没有返回值都强制要求return语句返回一个值
-  &quot;curly&quot;: [&quot;error&quot;, &quot;all&quot;], //强制使用花括号的风格
-  &quot;default-case&quot;: 0, //在switch语句中需要有default语句
-  &quot;dot-notation&quot;: [&quot;error&quot;, {&quot;allowKeywords&quot;: false, &quot;allowPattern&quot;: &quot;&quot;}], //获取对象属性的时候使用点号
-  &quot;eqeqeq&quot;: [&quot;error&quot;, &quot;smart&quot;], //比较的时候使用严格等于
-  &quot;no-alert&quot;: 1, //不允许使用alert，confirm，prompt语句
-  &quot;no-caller&quot;: 2, //不允许使用arguments.callee和arguments.caller属性
-  &quot;guard-for-in&quot;: 0, //监视for in循环，防止出现不可预料的情况
-  &quot;no-div-regex&quot;: 2, //不能使用看起来像除法的正则表达式
-  &quot;no-else-return&quot;: 0, //如果if语句有return，else里的return不用放在else里
-  &quot;no-labels&quot;: [&quot;error&quot;, {
-      &quot;allowLoop&quot;: false,
-      &quot;allowSwitch&quot;: false
-  }], //不允许标签语句
-  &quot;no-eq-null&quot;: 2, //不允许对null用==或者!=
-  &quot;no-eval&quot;: 2, //不允许使用eval()
-  &quot;no-extend-native&quot;: 2, //不允许扩展原生对象
-  &quot;no-extra-bind&quot;: 2, //不允许不必要的函数绑定
-  &quot;no-fallthrough&quot;: 2, //不允许switch按顺序全部执行所有case
-  &quot;no-floating-decimal&quot;: 2, //不允许浮点数缺失数字
-  &quot;no-implied-eval&quot;: 2, //不允许使用隐式eval()
-  &quot;no-iterator&quot;: 2, //不允许使用__iterator__属性
-  &quot;no-lone-blocks&quot;: 2, //不允许不必要的嵌套代码块
-  &quot;no-loop-func&quot;: 2, //不允许在循环语句中进行函数声明
-  &quot;no-multi-spaces&quot;: 2, //不允许出现多余的空格
-  &quot;no-multi-str&quot;: 2, //不允许用\来让字符串换行
-  &quot;no-global-assign&quot;: 2, //不允许重新分配原生对象
-  &quot;no-new&quot;: 2, //不允许new一个实例后不赋值或者不比较
-  &quot;no-new-func&quot;: 2, //不允许使用new Function
-  &quot;no-new-wrappers&quot;: 2, //不允许使用new String，Number和Boolean对象
-  &quot;no-octal&quot;: 2, //不允许使用八进制字面值
-  &quot;no-octal-escape&quot;: 2, //不允许使用八进制转义序列
-  &quot;no-param-reassign&quot;: 0, //不允许重新分配函数参数&quot;no-proto&quot;: 2, //不允许使用__proto__属性
-  &quot;no-redeclare&quot;: 2, //不允许变量重复声明
-  &quot;no-return-assign&quot;: 2, //不允许在return语句中使用分配语句
-  &quot;no-script-url&quot;: 2, //不允许使用javascript:void(0)
-  &quot;no-self-compare&quot;: 2, //不允许自己和自己比较
-  &quot;no-sequences&quot;: 2, //不允许使用逗号表达式
-  &quot;no-throw-literal&quot;: 2, //不允许抛出字面量错误 throw &quot;error&quot;
-  &quot;no-unused-expressions&quot;: 2, //不允许无用的表达式
-  &quot;no-void&quot;: 2, //不允许void操作符
-  &quot;no-warning-comments&quot;: [1, {&quot;terms&quot;: [&quot;todo&quot;, &quot;fixme&quot;, &quot;any other term&quot;]}], //不允许警告备注
-  &quot;no-with&quot;: 2, //不允许使用with语句
-  &quot;radix&quot;: 1, //使用parseInt时强制使用基数来指定是十进制还是其他进制
-  &quot;vars-on-top&quot;: 0, //var必须放在作用域顶部
-  &quot;wrap-iife&quot;: [2, &quot;any&quot;], //立即执行表达式的括号风格
-  &quot;yoda&quot;: [2, &quot;never&quot;, {&quot;exceptRange&quot;: true}], //不允许在if条件中使用yoda条件
-  &quot;strict&quot;: [2, &quot;function&quot;], //使用严格模式
-  &quot;no-catch-shadow&quot;: 2, //不允许try catch语句接受的err变量与外部变量重名&quot;no-delete-var&quot;: 2, //不允许使用delete操作符
-  &quot;no-label-var&quot;: 2, //不允许标签和变量同名
-  &quot;no-shadow&quot;: 2, //外部作用域中的变量不能与它所包含的作用域中的变量或参数同名
-  &quot;no-shadow-restricted-names&quot;: 2, //js关键字和保留字不能作为函数名或者变量名
-  &quot;no-undef&quot;: 2, //不允许未声明的变量
-  &quot;no-undef-init&quot;: 2, //不允许初始化变量时给变量赋值undefined
-  &quot;no-undefined&quot;: 2, //不允许把undefined当做标识符使用
-  &quot;no-unused-vars&quot;: [2, {&quot;vars&quot;: &quot;all&quot;, &quot;args&quot;: &quot;after-used&quot;}], //不允许有声明后未使用的变量或者参数
-  &quot;no-use-before-define&quot;: [2, &quot;nofunc&quot;], //不允许在未定义之前就使用变量&quot;indent&quot;: 2, //强制一致的缩进风格
-  &quot;brace-style&quot;: [2, &quot;1tbs&quot;, { &quot;allowSingleLine&quot;: false}], //大括号风格
-  &quot;camelcase&quot;: [2, {&quot;properties&quot;: &quot;never&quot;}], //强制驼峰命名规则
-  &quot;comma-style&quot;: [2, &quot;last&quot;], //逗号风格
-  &quot;consistent-this&quot;: [0, &quot;self&quot;], //当获取当前环境的this是用一样的风格
-  &quot;eol-last&quot;: 2, //文件以换行符结束
-  &quot;func-names&quot;: 0, //函数表达式必须有名字
-  &quot;func-style&quot;: 0, //函数风格，规定只能使用函数声明或者函数表达式
-  &quot;key-spacing&quot;: [2, {&quot;beforeColon&quot;: false, &quot;afterColon&quot;: true}], //对象字面量中冒号的前后空格
-  &quot;max-nested-callbacks&quot;: 0, //回调嵌套深度
-  &quot;new-cap&quot;: [2, {&quot;newIsCap&quot;: true, &quot;capIsNew&quot;: false}], //构造函数名字首字母要大写
-  &quot;new-parens&quot;: 2, //new时构造函数必须有小括号
-  &quot;newline-after-var&quot;: 0, //变量声明后必须空一行
-  &quot;no-array-constructor&quot;: 2, //不允许使用数组构造器
-  &quot;no-inline-comments&quot;: 0, //不允许行内注释
-  &quot;no-lonely-if&quot;: 0, //不允许else语句内只有if语句
-  &quot;no-mixed-spaces-and-tabs&quot;: [2, &quot;smart-tabs&quot;], //不允许混用tab和空格
-  &quot;no-multiple-empty-lines&quot;: [2, {&quot;max&quot;: 2}], //空行最多不能超过两行
-  &quot;no-nested-ternary&quot;: 2, //不允许使用嵌套的三目运算符
-  &quot;no-new-object&quot;: 2, //禁止使用new Object()
-  &quot;fun-call-spacing&quot;: 2, //函数调用时，函数名与()之间不能有空格
-  &quot;no-ternary&quot;: 0, //不允许使用三目运算符
-  &quot;no-trailing-spaces&quot;: 2, //一行最后不允许有空格
-  &quot;no-underscore-dangle&quot;: 2, //不允许标识符以下划线开头
-  &quot;no-extra-parens&quot;: 0, //不允许出现多余的括号
-  &quot;one-var&quot;: 0, //强制变量声明放在一起
-  &quot;operator-assignment&quot;: 0, //赋值运算符的风格
-  &quot;padded-blocks&quot;: [2, &quot;never&quot;], //块内行首行尾是否空行
-  &quot;quote-props&quot;: 0, //对象字面量中属性名加引号
-  &quot;quotes&quot;: [1, &quot;single&quot;, &quot;avoid-escape&quot;], //引号风格
-  &quot;semi&quot;: [2, &quot;always&quot;], //强制语句分号结尾
-  &quot;semi-spacing&quot;: [2, {&quot;before&quot;: false, &quot;after&quot;: true}], //分后前后空格
-  &quot;sort-vars&quot;: 0, //变量声明时排序
-  &quot;space-before-blocks&quot;: [2, &quot;always&quot;], //块前的空格
-  &quot;space-before-function-paren&quot;: [2, {&quot;anonymous&quot;: &quot;always&quot;, &quot;named&quot;: &quot;never&quot;}], //函数定义时括号前的空格
-  &quot;space-infix-ops&quot;: [2, {&quot;int32Hint&quot;: true}], //操作符周围的空格
-  &quot;keyword-spacing&quot;: 2, //关键字前后的空格
-  &quot;space-unary-ops&quot;: [2, { &quot;words&quot;: true, &quot;nonwords&quot;: false}], //一元运算符前后不要加空格
-  &quot;wrap-regex&quot;: 2, //正则表达式字面量用括号括起来
-  &quot;no-var&quot;: 0, //使用let和const代替var
-  &quot;generator-star-spacing&quot;: [2, &quot;both&quot;], //生成器函数前后空格
-  &quot;max-depth&quot;: 0, //嵌套块深度
-  &quot;max-len&quot;: 0, //一行最大长度，单位为字符
-  &quot;max-params&quot;: 0, //函数最多能有多少个参数
-  &quot;max-statements&quot;: 0, //函数内最多有几个声明
-  &quot;no-bitwise&quot;: 0, //不允许使用位运算符
-  &quot;no-plusplus&quot;: 0 //不允许使用++ --运算符
-</code></pre><p>  }</p>
-<p>参考博客：<a href="https://www.cnblogs.com/smzd/p/9848691.html" target="_blank" rel="noopener">https://www.cnblogs.com/smzd/p/9848691.html</a></p>
-
-          
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/07/Eslint 禁用命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1769,144 +1794,6 @@ Person.apply(this, [name, age]);
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/27/Vue-ELementui实现多文件上传功能/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xiaogui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/27/Vue-ELementui实现多文件上传功能/" itemprop="url">Vue+ELementui实现多文件上传功能</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-27T20:08:17+08:00">
-                2018-12-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/12/27/Vue-ELementui实现多文件上传功能/" class="leancloud_visitors" data-flag-title="Vue+ELementui实现多文件上传功能">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p></p><h1>前言</h1><br>最近遇到一个很棘手的问题，就是需要上传多个图片或视频文件，我一直陷在数组里面无法自拔，正如我们所知，上传一张图片，formdata的格式是这样的，<p></p>
-<p><img src="https://i.imgur.com/dJ6xDUV.png" alt=""></p>
-<p>从这里我们可以联想到多张图片应该也是要这样子传的，一开始就陷入在数组的坑里，来来回回，各种尝试，终于出现了真的的结果多张图片应该张下面这样</p>
-<p><img src="https://i.imgur.com/NlCQDVR.png" alt=""></p>
-<p></p><h1>具体代码</h1><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/27/Vue-ELementui实现多文件上传功能/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1957,7 +1844,7 @@ Person.apply(this, [name, age]);
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
