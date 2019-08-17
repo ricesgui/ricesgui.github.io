@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Ricesgui">
 <meta property="og:description" content="前言最近又用到了vue-lazyload来实现图片懒加载，怎么说又呢？是因为之前只是简单引用没有深入了解，都用过这么多次了，那就来个总结吧。 install$ npm i vue-lazyload -S Usage简单使用main.js import Vue from &amp;apos;vue&amp;apos; import App from &amp;apos;./App.vue&amp;apos; import VueL">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-14T13:17:46.036Z">
+<meta property="og:updated_time" content="2019-08-16T08:48:37.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-lazyload 实现图片懒加载效果">
 <meta name="twitter:description" content="前言最近又用到了vue-lazyload来实现图片懒加载，怎么说又呢？是因为之前只是简单引用没有深入了解，都用过这么多次了，那就来个总结吧。 install$ npm i vue-lazyload -S Usage简单使用main.js import Vue from &amp;apos;vue&amp;apos; import App from &amp;apos;./App.vue&amp;apos; import VueL">
@@ -401,12 +401,16 @@ new Vue({
       const { el } = listener;
       delete el.src;
       el.alt = &apos;加载失败，点击重试&apos;;
-      // el.style.cssText = &apos;background-color: rgba(158, 158, 158, 0.25098039215686274);&apos;;
+      // el.style.cssText = &apos;background-color: gray;&apos;;
       el.addEventListener(&apos;click&apos;, function reload() {
         listener.state.error = false;
         listener.load();
         el.removeEventListener(&apos;click&apos;, reload);
-      });
+        /* 根据js事件冒泡机制，要实现点击图片重新加载而不触发到别的事
+        件则需要阻止其冒泡，因为所有的onClick监听都是设置在冒泡阶段的
+        */
+        e.stopPropagation(); 
+      }, true);
     },
   },
 });

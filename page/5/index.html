@@ -551,42 +551,17 @@
       
         
           
-            <p></p><h1> Vue的父子通讯</h1><br>在vue中，其中一个重要的通信就是父子通讯，父子之间的设置又随着情况而不同。其中最常见的就是父组件为控制组件，子组件为视图组件。父组件传递数据给子组件使用，遇到业务逻辑操作时子组件触发父组件的自定义事件。<p></p>
-<p></p><h3>父组件到子组件通讯</h3><p></p>
-<p></p><p>父组件到子组件的通讯主要为：子组件接受使用父组件的数据，数据包括属性和方法（String,Number,Boolean,Object,Array,Function）.通常情况下都是父组件传递数据给子组件使用，子组件触发父组件的事件，并传递给父组件所需要的参数。</p>
-<p><ul></ul></p>
-<p><li>通过props传递数据</li></p>
-<p></p><p>props传递数据即父组件调用子组件并传入数据，子组件接受到父组建传递的数据进行验证使用。<br>如下图：我在主页面调用显示新建规则对话框组件,需要在Script部分import进来该组件，并且注册component，然后在调用显示的模块里监听该父组件的值</p><br>    <template><br>      <div><br>        <h2>主页面</h2><br>           <add-rules-dialog v-if="addRulesOnoff" :dialog-form-visible="addRulesOnoff"><br>              </add-rules-dialog><br>        </div><br>    </template><br>    <script><br>    import AddRulesDialog from …//此处填写您的组件路径<br>    …<br>    export default {<br>        components: {<br>        AddRulesDialog<br>    }，<br>        data() {<br>             return{<br>                addRulesOnOff<br>                    }，<br>        method: {<br>         addRules() {<br>            this.title = ‘创建报警规则’<br>            this.addRulesOnoff = true<br>            this.isClickOnModal = false<br>            this.rowEditOnoff = false<br>            this.rowOnoff = false<br>            this.isRead = false<br>            this.isReadonly = false<br>          }<br>    </script><p></p>
-<p><img src="https://i.imgur.com/sza36iD.png" alt=""><br><img src="https://i.imgur.com/8sGJm6Y.png" alt=""><br>在子组件中定义props数据,如下图所示<br><img src="https://i.imgur.com/O2W8sB0.png" alt=""></p>
-<p><li>通过$on 传递父组件方法</li><br><br>$on传递父组件方法与props传递方法达到相同的效果。相比于props传递function,它更加的直观和显示的表示出调用关系。<br><img src="https://i.imgur.com/vES4Ybo.png" alt=""><br><img src="https://i.imgur.com/Ok0c2Fz.png" alt=""></p>
-<p></p><h3>子组件到父组件通讯</h3><p></p>
-<p><ul></ul></p>
-<p><li>通过$emit传递父组件数据</li><br>与父组件到子组件通讯中的$on配套使用，可以向父组件中触发的方法传递参数供父组件使用。</p>
-<p><li>通过refs获取</li><br>可以通过在子组件添加ref属性，然后可以通过ref属性名称获取到子组件的实例。准确来说这种方式和this.$parent一样并不属于数据的传递而是一种主动的查找。<br>尽量避免使用这种方式。因为在父子组件通信的过程中。父组件是处于高位是拥有控制权，而子组件在多数情况下应该为纯视图组件，只负责视图的展示和自身视图的逻辑操作。对外交互的权利应该由父组件来控制。所以应当由父组件传递视图数据给子组件，子组件负责展示。而子组件的对外交互通过$emit触发父组件中相应的方法，再由父组件处理相应逻辑。</p>
-<pre><code>&lt;template&gt;
-  &lt;div&gt;
-    &lt;h2&gt;父组件&lt;/h2&gt;
-    &lt;br&gt;
-    &lt;Child-one ref=&quot;child&quot;&gt;&lt;/Child-one&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-&lt;script&gt;
-  import ChildOne from &apos;./ChildOne&apos;;
+            <h1 id="Vue的父子通讯"><a href="#Vue的父子通讯" class="headerlink" title="Vue的父子通讯"></a>Vue的父子通讯</h1><p>在vue中，其中一个重要的通信就是父子通讯，父子之间的设置又随着情况而不同。其中最常见的就是父组件为控制组件，子组件为视图组件。父组件传递数据给子组件使用，遇到业务逻辑操作时子组件触发父组件的自定义事件。</p>
+<h2 id="父组件到子组件通讯"><a href="#父组件到子组件通讯" class="headerlink" title="父组件到子组件通讯"></a>父组件到子组件通讯</h2><p>父组件到子组件的通讯主要为：子组件接受使用父组件的数据，数据包括属性和方法（String,Number,Boolean,Object,Array,Function）.通常情况下都是父组件传递数据给子组件使用，子组件触发父组件的事件，并传递给父组件所需要的参数。<br><ul><br><li>通过props传递数据</li><br><p>props传递数据即父组件调用子组件并传入数据，子组件接受到父组建传递的数据进行验证使用。<br>如下图：我在主页面调用显示新建规则对话框组件,需要在Script部分import进来该组件，并且注册component，然后在调用显示的模块里监听该父组件的值</p>
 
-  export default{
-    components: {
-      ChildOne,
-    },
-    mounted(){
-      console.log(this.$refs[&apos;child&apos;]);
-    },
-  };
-&lt;/script&gt;
-&lt;style scoped&gt;
-&lt;/style&gt;
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">  &lt;h2&gt;主页面&lt;/h2&gt;</span><br><span class="line">    &lt;add-rules-dialog</span><br><span class="line">      v-if=&quot;addRulesOnoff&quot; </span><br><span class="line">      :dialog-form-visible=&quot;addRulesOnoff&quot;</span><br><span class="line">    &gt;</span><br><span class="line">        &lt;/add-rules-dialog&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import AddRulesDialog from ...//此处填写您的组件路径</span><br><span class="line">...</span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">  AddRulesDialog</span><br><span class="line">&#125;，</span><br><span class="line">  data() &#123;</span><br><span class="line">    return&#123; </span><br><span class="line">      addRulesOnOff</span><br><span class="line">        &#125;，</span><br><span class="line">  method: &#123;	</span><br><span class="line">  addRules() &#123;</span><br><span class="line">        this.title = &apos;创建报警规则&apos;</span><br><span class="line">        this.addRulesOnoff = true   </span><br><span class="line">        this.isClickOnModal = false</span><br><span class="line">        this.rowEditOnoff = false</span><br><span class="line">        this.rowOnoff = false</span><br><span class="line">        this.isRead = false</span><br><span class="line">        this.isReadonly = false</span><br><span class="line">      &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>在子组件中定义props数据,如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  rules: &#123;</span><br><span class="line">    type: Object,</span><br><span class="line">    default: () =&gt; &#123;&#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p><li>通过$on 传递父组件方法</li><br></p></ul><br>$on传递父组件方法与props传递方法达到相同的效果。相比于props传递function,它更加的直观和显示的表示出调用关系。</p>
+<h2 id="子组件到父组件通讯"><a href="#子组件到父组件通讯" class="headerlink" title="子组件到父组件通讯"></a>子组件到父组件通讯</h2><ol>
+<li>通过$emit传递父组件数据<br>与父组件到子组件通讯中的$on配套使用，可以向父组件中触发的方法传递参数供父组件使用。</li>
+<li>通过refs获取<br>可以通过在子组件添加ref属性，然后可以通过ref属性名称获取到子组件的实例。准确来说这种方式和this.$parent一样并不属于数据的传递而是一种主动的查找。<br>尽量避免使用这种方式。因为在父子组件通信的过程中。父组件是处于高位是拥有控制权，而子组件在多数情况下应该为纯视图组件，只负责视图的展示和自身视图的逻辑操作。对外交互的权利应该由父组件来控制。所以应当由父组件传递视图数据给子组件，子组件负责展示。而子组件的对外交互通过$emit触发父组件中相应的方法，再由父组件处理相应逻辑。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;父组件&lt;/h2&gt;</span><br><span class="line">    &lt;br&gt;</span><br><span class="line">    &lt;Child-one ref=&quot;child&quot;&gt;&lt;/Child-one&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import ChildOne from &apos;./ChildOne&apos;;</span><br><span class="line"></span><br><span class="line">  export default&#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">      ChildOne,</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted()&#123;</span><br><span class="line">      console.log(this.$refs[&apos;child&apos;]);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">this.$refs[&apos;child&apos;]</span><br></pre></td></tr></table></figure></li>
+</ol>
 
-this.$refs[&apos;child&apos;]
-</code></pre>
           
         
       
