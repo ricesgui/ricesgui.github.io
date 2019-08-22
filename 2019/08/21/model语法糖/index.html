@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="心情," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="最近好像是瓶颈？五一长假似乎过的太舒适了，回学校后开始有点小焦虑今天晚上终于开始写我的hexo博客，不显得那么空旷了以后能够继续改进。yeah！要努力赚钱养家嘿。做一个积极向上的程序员！">
-<meta name="keywords" content="心情">
+<meta name="description" content="前言Vue有很多语法糖，但是我们往往会忽略v-model也是一个语法糖，误以为它只是一个简单的监听绑定数据作用。 v-model实质&amp;lt;input v-model=&amp;quot;something&amp;quot;&amp;gt;实质上等同于&amp;lt;input v-bind:value=&amp;quot;something&amp;quot; v-on:input=&amp;quot;something = $event.targ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="chapther1">
-<meta property="og:url" content="http://yoursite.com/2018/05/10/chapther1/index.html">
+<meta property="og:title" content="如何理解v-model的实质为语法糖">
+<meta property="og:url" content="http://yoursite.com/2019/08/21/model语法糖/index.html">
 <meta property="og:site_name" content="Ricesgui">
-<meta property="og:description" content="最近好像是瓶颈？五一长假似乎过的太舒适了，回学校后开始有点小焦虑今天晚上终于开始写我的hexo博客，不显得那么空旷了以后能够继续改进。yeah！要努力赚钱养家嘿。做一个积极向上的程序员！">
+<meta property="og:description" content="前言Vue有很多语法糖，但是我们往往会忽略v-model也是一个语法糖，误以为它只是一个简单的监听绑定数据作用。 v-model实质&amp;lt;input v-model=&amp;quot;something&amp;quot;&amp;gt;实质上等同于&amp;lt;input v-bind:value=&amp;quot;something&amp;quot; v-on:input=&amp;quot;something = $event.targ">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-07T09:19:29.281Z">
+<meta property="og:updated_time" content="2019-08-22T06:52:35.753Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="chapther1">
-<meta name="twitter:description" content="最近好像是瓶颈？五一长假似乎过的太舒适了，回学校后开始有点小焦虑今天晚上终于开始写我的hexo博客，不显得那么空旷了以后能够继续改进。yeah！要努力赚钱养家嘿。做一个积极向上的程序员！">
+<meta name="twitter:title" content="如何理解v-model的实质为语法糖">
+<meta name="twitter:description" content="前言Vue有很多语法糖，但是我们往往会忽略v-model也是一个语法糖，误以为它只是一个简单的监听绑定数据作用。 v-model实质&amp;lt;input v-model=&amp;quot;something&amp;quot;&amp;gt;实质上等同于&amp;lt;input v-bind:value=&amp;quot;something&amp;quot; v-on:input=&amp;quot;something = $event.targ">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/10/chapther1/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/08/21/model语法糖/"/>
 
 
 
 
 
-  <title>chapther1 | Ricesgui</title>
+  <title>如何理解v-model的实质为语法糖 | Ricesgui</title>
   
 
 
@@ -273,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/10/chapther1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/model语法糖/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ricesgui">
@@ -290,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">chapther1</h1>
+          <h1 class="post-title" itemprop="name headline">如何理解v-model的实质为语法糖</h1>
         
 
         <div class="post-meta">
@@ -302,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-10T21:10:30+08:00">
-                2018-05-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-21T21:07:04+08:00">
+                2019-08-21
               </time>
             
 
@@ -320,7 +319,7 @@
 
           
           
-             <span id="/2018/05/10/chapther1/" class="leancloud_visitors" data-flag-title="chapther1">
+             <span id="/2019/08/21/model语法糖/" class="leancloud_visitors" data-flag-title="如何理解v-model的实质为语法糖">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                </span>
@@ -355,7 +354,13 @@
       
 
       
-        <p>最近好像是瓶颈？<br><br><br>五一长假似乎过的太舒适了，回学校后开始有点小焦虑<br><br>今天晚上终于开始写我的hexo博客，不显得那么空旷了<br><br>以后能够继续改进。yeah！<br>要努力赚钱养家嘿。做一个积极向上的程序员！</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Vue有很多语法糖，但是我们往往会忽略v-model也是一个语法糖，误以为它只是一个简单的监听绑定数据作用。</p>
+<h2 id="v-model实质"><a href="#v-model实质" class="headerlink" title="v-model实质"></a>v-model实质</h2><p><code>&lt;input v-model=&quot;something&quot;&gt;</code><br>实质上等同于<br><code>&lt;input v-bind:value=&quot;something&quot; v-on:input=&quot;something = $event.target.value&quot;&gt;</code></p>
+<p>v-model=”something”则表示将value值绑定在something上，当值发生改变时触发绑定的oninput事件。oninput事件绑定的函数是将触发oninput事件的目标（该input）的value值赋值给something这个变量。</p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>在写父子组件间的传值的时候，在子组件中定义一个props的变量，然后再去给它绑定到一个子组件的model里。其实子组件也是调用的别人的UI框架。代码如下，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;md-popup v-model=&quot;isPopupShow&quot;&gt;&lt;/md-popup&gt;</span><br><span class="line">props: &#123;</span><br><span class="line">  isPopupShow: &#123;</span><br><span class="line">    type: String,</span><br><span class="line">    default: false,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这时候在点击蒙版关闭掉弹窗时，会报错，不能在子组件里修改props变量。</p>
+<p>解决方法：<br>点击蒙版时向父组件emit一个关闭事件，让父组件去关闭弹窗的属性值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;md-popup :value=&quot;&quot; @input=&quot;handleClickMask&quot;&gt;&lt;/md-popup&gt;</span><br><span class="line"></span><br><span class="line">this.$emit(&apos;click-mask&apos;, true);</span><br></pre></td></tr></table></figure></p>
+<p>父组件接收子组件的事件，修改传给子组件的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;zujian @click-mask=&quot;handleClose&quot;&gt;&lt;/zujian&gt;</span><br><span class="line">handleClose() &#123;</span><br><span class="line">  this.isPopupShow = false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -371,12 +376,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/心情/" rel="tag"># 心情</a>
-          
-        </div>
-      
 
       
       
@@ -386,8 +385,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/10/blog2/" rel="next" title="如何在hexo中写文章">
-                <i class="fa fa-chevron-left"></i> 如何在hexo中写文章
+              <a href="/2019/08/21/前端文字处理记录/" rel="next" title="前端文字处理记录">
+                <i class="fa fa-chevron-left"></i> 前端文字处理记录
               </a>
             
           </div>
@@ -395,10 +394,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/11/blog3/" rel="prev" title="如何将本地仓库的代码上传到github远程仓库">
-                如何将本地仓库的代码上传到github远程仓库 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -455,8 +450,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -572,6 +576,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#v-model实质"><span class="nav-number">1.1.</span> <span class="nav-text">v-model实质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">1.2.</span> <span class="nav-text">遇到的问题</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

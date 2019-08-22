@@ -272,6 +272,355 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/window-resize方法监听窗口大小/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ricesgui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/07/window-resize方法监听窗口大小/" itemprop="url">window.resize方法监听窗口大小</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-07T19:50:21+08:00">
+                2018-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/07/window-resize方法监听窗口大小/" class="leancloud_visitors" data-flag-title="window.resize方法监听窗口大小">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在实现了页面基本功能后，想去优化一下页面的适配问题，就让我的Echart表跟着用户变化浏览器大小或者分辨率大小而改变，具体实现上代码：</p>
+<pre><code>&lt;template&gt;
+&lt;div class=&quot;searchCon&quot; ref=&quot;tableDataRef&quot;&gt; 
+    &lt;div class=&quot;chart&quot;&gt;
+        &lt;line-chart
+          :title=&quot;accessLineData.title&quot; 
+          :catalog=&quot;accessLineData.catalog&quot; 
+          :data=&quot;accessLineData.data&quot; 
+          :y-name=&quot;yName&quot; 
+          :a-colori=&quot;accessLineData.aColor1&quot; 
+          :a-colorii=&quot;accessLineData.aColor2&quot;
+          :rendering=&quot;rendering&quot;&gt;&lt;/line-chart&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;chart&quot;&gt;
+        &lt;line-chart
+          :title=&quot;accessLineData1.title&quot; 
+          :catalog=&quot;accessLineData1.catalog&quot; 
+          :data=&quot;accessLineData1.data&quot; 
+          :y-name=&quot;yName&quot; 
+          :a-colori=&quot;accessLineData1.aColor1&quot; 
+          :a-colorii=&quot;accessLineData1.aColor2&quot;
+          :rendering=&quot;rendering&quot;&gt;&lt;/line-chart&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import LineChart from &apos;@/components/LineChart.vue&apos;
+
+export default {
+// ...
+name: &apos;&apos;,
+components: {
+    LineChart
+},
+data() {
+    return {
+        accessLineData: {
+        title: &apos;CPU使用率&apos;,
+        catalog: [],
+        data: [],
+        aColor1: &apos;#ffffff&apos;,
+        aColor2: &apos;#ffffff&apos;    
+        },
+        accessLineData1: {
+        title: &apos;内存使用率&apos;,
+        catalog: [],
+        data: [],
+        aColor1: &apos;#ffffff&apos;,
+        aColor2: &apos;#ffffff&apos; 
+        }
+    }
+},
+mounted() {
+  this.$nextTick(() =&gt; {   
+        this.handleFn()
+  })
+   window.addEventListener(&apos;resize&apos;, this.handleFn)
+},
+methods: {
+  handleFn() {
+    // this.height = this.$refs.tableDataRef.clientHeight - 130
+    this.rendering = !this.rendering
+    let _this = this
+    if (_this.$refs.chartCon.clientWidth &gt;= 1120) {
+        _this.chartData.accessLineData.width = parseInt(_this.$refs.chartCon.clientWidth / 2 - 50) + &apos;px&apos;    
+        _this.chartData.accessLineData1.width = parseInt(_this.$refs.chartCon.clientWidth / 2 - 50) + &apos;px&apos;    
+    } else {
+        _this.chartData.accessLineData.width = &apos;759px&apos;
+        _this.chartData.accessLineData1.width = &apos;759px&apos;          
+    }
+    if (_this.$refs.chartCon.clientHeight &gt;= 500) {
+        _this.chartData.accessLineData.height = &apos;450px&apos;
+        _this.chartData.accessLineData1.height = &apos;450px&apos;          
+    }
+}
+}
+}
+&lt;/script&gt;
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/07/window-resize方法监听窗口大小/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/05/实现未知宽高元素垂直居中/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ricesgui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/05/实现未知宽高元素垂直居中/" itemprop="url">实现未知宽高元素垂直居中</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-05T21:02:06+08:00">
+                2018-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/05/实现未知宽高元素垂直居中/" class="leancloud_visitors" data-flag-title="实现未知宽高元素垂直居中">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p></p><h1>实现未知宽高元素垂直居中的几种方法</h1><p></p>
+<p><ol></ol></p>
+<li>方法1</li><br>思路：设置父级元素为table显示，子元素为table-cell,利用vertical-align：middle,实现水平居中。<br>优点：父级元素可以动态改变高度<br><img src="https://i.imgur.com/6vok5mD.png" alt=""><br><br>实现效果：<br><br><img src="https://i.imgur.com/F0HEylG.png" alt=""><br><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/05/实现未知宽高元素垂直居中/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/WebSocket通信/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1484,269 +1833,6 @@ x=data.eventType;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/blog10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ricesgui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/15/blog10/" itemprop="url">git 命令报错</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-15T22:26:31+08:00">
-                2018-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/07/15/blog10/" class="leancloud_visitors" data-flag-title="git 命令报错">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p></p><h1>fatal: remote origin already exists.</h1><p></p>
-<p>最近好久没有更新过博客了，一个原因是因为期末考试和期末作业，还有一个原因就是更新换代了电脑，好多配置还没恢复回来。</p>
-
-<p></p><p>今天想把博客的github配置好的时候，重新连接到自己的仓库的时候直接<br><br>命令:$ git remote add origin http：//github.com/用户名/仓库名.git<br><br>即你仓库的http/ssh链接。<br>却报错：fatal: remote origin already exists.在这里记录一下解决方法：需要先删除之前的配置。<br><br>解决方法：只需要先输入命令$ git remote rm origin </p><br>然后就成功啦，撒花。<p></p>
-<p>由于之前用的是win7系统，所以下载markdownpad2后直接安装就能用没遇上什么大问题。但是这次在win10系统下安装完后，右边预览不能正常显示，解决方法1：按说明文档提示安装一下<a href="http://markdownpad.com/download/awesomium_v1.6.6_sdk_win.exe" target="_blank" rel="noopener">Awesomium 1.6.6 SDK</a><br>如果还是不行，就接着安装 <a href="http://www.microsoft.com/en-us/download/details.aspx?id=8109" target="_blank" rel="noopener">Microsoft’s DirectX End-User Runtimes (June 2010)</a><br>但是博主实测，只需要安装第一个就解决了问题了。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/04/blog8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ricesgui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/04/blog8/" itemprop="url">Canvas在IE上的兼容问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-04T17:49:48+08:00">
-                2018-07-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/07/04/blog8/" class="leancloud_visitors" data-flag-title="Canvas在IE上的兼容问题">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><br>前文提到最近在做网页设计，不做不知道，一做吓一跳，我们的网站越往下走信息量越大，需要做的东西也越多，特别是需要和后端协同是一个非常考验团队合作的事情,在我做注册界面的验证码的时候，遇到了Canvas在IE浏览器上不兼容的问题。以下进行说明。</p><br><font style="font-size:20px">canvas 是html5新增加的元素，IE从IE9开始支持canvas，IE8及以下不支持HTML5。</font><br>在ExplorerCanvas库(<a href="http://excanvas.sourceforge.net/)中调用IE内部功能提供了几乎相同的API。" target="_blank" rel="noopener">http://excanvas.sourceforge.net/)中调用IE内部功能提供了几乎相同的API。</a> 但ExplorerCanvas不支持字体, 所以为了使用文字, 还需要使用canvas-text库(<a href="http://code.google.com/p/canvas-text/)。" target="_blank" rel="noopener">http://code.google.com/p/canvas-text/)。</a><br>所以（手动划重点）如果同一页HTML要兼容低版本IE和其它支持HTML5的浏览器, 可以用如下的语法选择性加入低版本IE需要的部分:<br><br>    <code>&lt;!--[if IE]&gt;</code><br>    <code>&lt;script type=&quot;text/javascript&quot; src=&quot;javascript/excanvas/excanvas.js&quot;&gt;&lt;/script&gt;</code><br>    <code>&lt;script type=&quot;text/javascript&quot; src=&quot;javascript/excanvas/canvas.text.js&quot;&gt;&lt;/script&gt;</code><br>    <code>&lt;script type=&quot;text/javascript&quot; src=&quot;javascript/excanvas/faces/optimer-normal-normal.js&quot;&gt;&lt;/script&gt;</code><br>    <code>&lt;![endif]--&gt;</code><br><br>但是！！！一定要注意这个问题，因为引入excanvas.js以后，在ie下，文档中的canvas就可以用了，但是如果是通过createElement方法动态创建的就不行了,如下所示。<br><br>    var canvas=document.createElement(”canvas”);<br>    if(canvas.getContext){<br>    alert(”support getContext()”);<br>    }<br><br><br>原因是，解释器在加载并执行excanvas.js这个脚本代码的时候，G_vmlCanvasManager_.init();这句语句遍历了页面中所有的canvas元素，然后初始化这些元素，亦即是将标准canvas的那些个方法赋予ie下的canvas：<br><br>    var els = doc.getElementsByTagName(”canvas”);<br>    for (var i = 0; i &lt; els.length; i++) {<br>    if (!els[i].getContext) {<br>    this.initElement(els[i]);<br>    }<br>    }<br><br><h2>总结:静态创建的canvas 标签，在加载excanvas.js脚本的时候会被初始化，动态创建的canvas则没有。</h2><br><h3><font color="red">解决办法:新创建了一个canvas元素就调用G_vmlCanvasManager_.initElement()方法来初始化。</font></h3><br><br>    if(!(document.getElementById(“canvas”).getContent））{<br>    G_vmlCanvasManager.ininElement(document.getElementById(“canvas”));<br>    }<br><br>但是，G_vmlCanvasManager_是在一个匿名函数function(){}里面定义的，我在全局范围下就没有办法引用到，还好，在excanvas.js文件的后面，有一句语句，<br><br>    G_vmlCanvasManager = G_vmlCanvasManager_;<br><br><p>在这些过程中感觉自己学到了更多东西，很大的满足感，并且非常期待地看到最后实现的结果。一起加油！</p>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1797,7 +1883,7 @@ x=data.eventType;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
