@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Vue," />
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="前言Vue有很多语法糖，但是我们往往会忽略v-model也是一个语法糖，误以为它只是一个简单的监听绑定数据作用。 v-model实质&amp;lt;input v-model=&amp;quot;something&amp;quot;&amp;gt;实质上等同于&amp;lt;input v-bind:value=&amp;quot;something&amp;quot; v-on:input=&amp;quot;something = $event.targ">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何理解v-model的实质为语法糖">
 <meta property="og:url" content="http://yoursite.com/2019/08/21/model语法糖/index.html">
 <meta property="og:site_name" content="Ricesgui">
 <meta property="og:description" content="前言Vue有很多语法糖，但是我们往往会忽略v-model也是一个语法糖，误以为它只是一个简单的监听绑定数据作用。 v-model实质&amp;lt;input v-model=&amp;quot;something&amp;quot;&amp;gt;实质上等同于&amp;lt;input v-bind:value=&amp;quot;something&amp;quot; v-on:input=&amp;quot;something = $event.targ">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-22T07:02:47.466Z">
+<meta property="og:updated_time" content="2019-08-22T09:00:26.231Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何理解v-model的实质为语法糖">
 <meta name="twitter:description" content="前言Vue有很多语法糖，但是我们往往会忽略v-model也是一个语法糖，误以为它只是一个简单的监听绑定数据作用。 v-model实质&amp;lt;input v-model=&amp;quot;something&amp;quot;&amp;gt;实质上等同于&amp;lt;input v-bind:value=&amp;quot;something&amp;quot; v-on:input=&amp;quot;something = $event.targ">
@@ -360,7 +361,7 @@
 <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>在写父子组件间的传值的时候，在子组件中定义一个props的变量，然后再去给它绑定到一个子组件的model里。其实子组件也是调用的别人的UI框架。代码如下，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;md-popup v-model=&quot;isPopupShow&quot;&gt;&lt;/md-popup&gt;</span><br><span class="line">props: &#123;</span><br><span class="line">  isPopupShow: &#123;</span><br><span class="line">    type: String,</span><br><span class="line">    default: false,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这时候在点击蒙版关闭掉弹窗时，会报错，不能在子组件里修改props变量。</p>
 <p>@import “../imgs/model_error.jpg”;</p>
-<p>解决方法：<br>点击蒙版时向父组件emit一个关闭事件，让父组件去关闭弹窗的属性值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;md-popup :value=&quot;&quot; @input=&quot;handleClickMask&quot;&gt;&lt;/md-popup&gt;</span><br><span class="line"></span><br><span class="line">this.$emit(&apos;click-mask&apos;, true);</span><br></pre></td></tr></table></figure></p>
+<p>解决方法：<br>点击蒙版时向父组件emit一个关闭事件，让父组件去关闭弹窗的属性值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;md-popup :value=&quot;isPopupShow&quot; @input=&quot;handleClickMask&quot;&gt;&lt;/md-popup&gt;</span><br><span class="line"></span><br><span class="line">this.$emit(&apos;click-mask&apos;, true);</span><br></pre></td></tr></table></figure></p>
 <p>父组件接收子组件的事件，修改传给子组件的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;zujian @click-mask=&quot;handleClose&quot;&gt;&lt;/zujian&gt;</span><br><span class="line">handleClose() &#123;</span><br><span class="line">  this.isPopupShow = false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
@@ -376,6 +377,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
+          
+        </div>
       
 
       
@@ -395,6 +402,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/03/Vue指令实现修改导航头部功能/" rel="prev" title="Vue指令实现修改导航头部功能">
+                Vue指令实现修改导航头部功能 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -476,7 +487,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -498,7 +509,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

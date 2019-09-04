@@ -272,6 +272,335 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/03/Vue实现过渡动画效果/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ricesgui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/03/Vue实现过渡动画效果/" itemprop="url">Vue代码里实现过渡动画效果</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-03T22:51:42+08:00">
+                2019-09-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/09/03/Vue实现过渡动画效果/" class="leancloud_visitors" data-flag-title="Vue代码里实现过渡动画效果">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这里想要实现一个点击下拉菜单选择时将下拉菜单移动到页面顶部，实现想法是：获取当前dom节点距离屏幕的高度，然后利用transform的translateY属性将下拉菜单从原位移动到顶部，这里要注意向下为正数，向上为负数。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 点击上移</span><br><span class="line">const height = this.$refs.dropdown.$el.offsetTop;</span><br><span class="line">this.$refs.dropdown.$el.style = `transition: all 0.1s linear;transform: translateY(-$&#123;height&#125;px)`;</span><br><span class="line">// 要在动画完成后再定位</span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">  this.$refs.dropdown.$el.style = &apos;position: fixed;top: 0px;left: 0px;right: 0px;bottom: 0px;&apos;;</span><br><span class="line">&#125;, 100)</span><br></pre></td></tr></table></figure>
+<h2 id="css属性-2D转换方法"><a href="#css属性-2D转换方法" class="headerlink" title="css属性 2D转换方法"></a>css属性 2D转换方法</h2><p>CSS3 转换可以可以对元素进行移动、缩放、转动、拉长或拉伸。<br>以下使用方法都是transform: translateX(21px);</p>
+<ol>
+<li>translateX(n)    定义 2D 转换，沿着 X 轴移动元素。</li>
+<li>translateY(n)    定义 2D 转换，沿着 Y 轴移动元素。</li>
+<li>translate(x,y)    定义 2D 转换，沿着 X 和 Y 轴移动元素</li>
+<li>scale(x,y)    定义 2D 缩放转换，改变元素的宽度和高度。</li>
+<li>scaleX(n)    定义 2D 缩放转换，改变元素的宽度。</li>
+<li>scaleY(n)    定义 2D 缩放转换，改变元素的高度。</li>
+<li>rotate(angle)    定义 2D 旋转，在参数中规定角度。</li>
+<li>skew(x-angle,y-angle)    定义 2D 倾斜转换，沿着 X 和 Y 轴。</li>
+<li>skewX(angle)    定义 2D 倾斜转换，沿着 X 轴。</li>
+<li>skewY(angle)    定义 2D 倾斜转换，沿着 Y 轴。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/03/Vue指令实现修改导航头部功能/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ricesgui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/03/Vue指令实现修改导航头部功能/" itemprop="url">Vue指令实现修改导航头部功能</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-03T22:51:14+08:00">
+                2019-09-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/09/03/Vue指令实现修改导航头部功能/" class="leancloud_visitors" data-flag-title="Vue指令实现修改导航头部功能">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>做一个项目的时候，我们都会想到要在router的afterEach钩子里处理一下document.title,让我们的浏览器头部显示出自己想要显示的标题。但是当我们想要个性化设置头部，而路由设置不了的头部我们可以用指令来实现。</p>
+<h2 id="Vue指令"><a href="#Vue指令" class="headerlink" title="Vue指令"></a>Vue指令</h2><p>除了核心功能默认内置的指令 (<code>v-model</code> 和 <code>v-show</code>)，Vue 也允许注册自定义指令。然而，有的情况下，你仍然需要对普通 DOM 元素进行底层操作，这时候就会用到自定义指令。<br>示例：</p>
+<pre><code>// 注册一个全局自定义指令 v-header
+Vue.directive(&apos;header&apos;, {
+  update: function (el, binding) {
+    // 修改头部
+    document.title = binding.value
+  }
+})
+</code></pre><p>如果想注册局部指令，组件中也接受一个 directives 的选项：</p>
+<pre><code>directives: {
+  header: {
+    // 指令的定义
+    update: function (el, binding) {
+      // 修改头部
+      document.title = binding.value
+    }
+  }
+}
+</code></pre><p>指令的使用：<br><code>&lt;div v-header=&quot;value&quot;&gt;&lt;/div&gt;</code></p>
+<h2 id="钩子函数"><a href="#钩子函数" class="headerlink" title="钩子函数"></a>钩子函数</h2><p>一个指令定义对象可以提供如下几个钩子函数 (均为可选)：</p>
+<ul>
+<li><p><code>bind</code>：只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。</p>
+</li>
+<li><p><code>inserted</code>：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。</p>
+</li>
+<li><p><code>update</code>：所在组件的 VNode 更新时调用，但是可能发生在其子 VNode 更新之前。指令的值可能发生了改变，也可能没有。但是你可以通过比较更新前后的值来忽略不必要的模板更新 (详细的钩子函数参数见下)。</p>
+</li>
+<li><p><code>componentUpdated</code>：指令所在组件的 VNode 及其子 VNode 全部更新后调用。</p>
+</li>
+<li><p><code>unbind</code>：只调用一次，指令与元素解绑时调用。</p>
+</li>
+</ul>
+<p>接下来我们来看一下钩子函数的参数 (即 el、binding、vnode 和 oldVnode)。</p>
+<h2 id="钩子函数参数"><a href="#钩子函数参数" class="headerlink" title="钩子函数参数"></a>钩子函数参数</h2><p>指令钩子函数会被传入以下参数：</p>
+<ul>
+<li><code>el</code>：指令所绑定的元素，可以用来直接操作 DOM 。</li>
+<li><code>binding</code>：一个对象，包含以下属性：<ul>
+<li><code>name</code>：指令名，不包括 v- 前缀。</li>
+<li><code>value</code>：指令的绑定值，例如：v-my-directive=”1 + 1” 中，绑定值为 2。</li>
+<li><code>oldValue</code>：指令绑定的前一个值，仅在 update 和 componentUpdated 钩子中可用。无论值是否改变都可用。</li>
+<li><code>expression</code>：字符串形式的指令表达式。例如 v-my-directive=”1 + 1” 中，表达式为 “1 + 1”。</li>
+<li><code>arg</code>：传给指令的参数，可选。例如 v-my-directive:foo 中，参数为 “foo”。</li>
+<li><code>modifiers</code>：一个包含修饰符的对象。例如：v-my-directive.foo.bar 中，修饰符对象为 { foo: true, bar: true }。</li>
+</ul>
+</li>
+<li><code>vnode</code>：Vue 编译生成的虚拟节点。移步 VNode API 来了解更多详情。</li>
+<li><code>oldVnode</code>：上一个虚拟节点，仅在 update 和 componentUpdated 钩子中可用。<br>除了 el 之外，其它参数都应该是只读的，切勿进行修改。如果需要在钩子之间共享数据，建议通过元素的 dataset 来进行。</li>
+</ul>
+<h2 id="函数简写"><a href="#函数简写" class="headerlink" title="函数简写"></a>函数简写</h2><p>在很多时候，你可能想在 bind 和 update 时触发相同行为，而不关心其它的钩子。比如这样写:</p>
+<pre><code>Vue.directive(&apos;color-swatch&apos;, function (el, binding) {
+  el.style.backgroundColor = binding.value
+})
+</code></pre><h2 id="对象字面量"><a href="#对象字面量" class="headerlink" title="对象字面量"></a>对象字面量</h2><p>如果指令需要多个值，可以传入一个 JavaScript 对象字面量。记住，指令函数能够接受所有合法的 JavaScript 表达式。</p>
+<p><code>&lt;div v-demo=&quot;{ color: &#39;white&#39;, text: &#39;hello!&#39; }&quot;&gt;&lt;/div&gt;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(&apos;demo&apos;, function (el, binding) &#123;</span><br><span class="line">  console.log(binding.value.color) // =&gt; &quot;white&quot;</span><br><span class="line">  console.log(binding.value.text)  // =&gt; &quot;hello!&quot;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>最后附上Vue官网： <a href="https://cn.vuejs.org/v2/guide/custom-directive.html" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/custom-directive.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/model语法糖/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -359,7 +688,7 @@
 <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>在写父子组件间的传值的时候，在子组件中定义一个props的变量，然后再去给它绑定到一个子组件的model里。其实子组件也是调用的别人的UI框架。代码如下，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;md-popup v-model=&quot;isPopupShow&quot;&gt;&lt;/md-popup&gt;</span><br><span class="line">props: &#123;</span><br><span class="line">  isPopupShow: &#123;</span><br><span class="line">    type: String,</span><br><span class="line">    default: false,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这时候在点击蒙版关闭掉弹窗时，会报错，不能在子组件里修改props变量。</p>
 <p>@import “../imgs/model_error.jpg”;</p>
-<p>解决方法：<br>点击蒙版时向父组件emit一个关闭事件，让父组件去关闭弹窗的属性值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;md-popup :value=&quot;&quot; @input=&quot;handleClickMask&quot;&gt;&lt;/md-popup&gt;</span><br><span class="line"></span><br><span class="line">this.$emit(&apos;click-mask&apos;, true);</span><br></pre></td></tr></table></figure></p>
+<p>解决方法：<br>点击蒙版时向父组件emit一个关闭事件，让父组件去关闭弹窗的属性值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;md-popup :value=&quot;isPopupShow&quot; @input=&quot;handleClickMask&quot;&gt;&lt;/md-popup&gt;</span><br><span class="line"></span><br><span class="line">this.$emit(&apos;click-mask&apos;, true);</span><br></pre></td></tr></table></figure></p>
 <p>父组件接收子组件的事件，修改传给子组件的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;zujian @click-mask=&quot;handleClose&quot;&gt;&lt;/zujian&gt;</span><br><span class="line">handleClose() &#123;</span><br><span class="line">  this.isPopupShow = false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
           
@@ -492,8 +821,66 @@
           
             <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>做前端的展示除了交互，图片展示还有一些文字展示，文字的多寡有的时候是我们预想不到的，所以这里整理一些关于文字展示可能用到的知识点。</p>
 <h2 id="单行文字省略"><a href="#单行文字省略" class="headerlink" title="单行文字省略"></a>单行文字省略</h2><p>只有块状元素才可以设置省略，而且我们需要设置它的宽度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">overflow: hidden;</span><br><span class="line">text-overflow: ellipsis; // 规定当文本溢出时显示省略符号来代表被修剪的文本</span><br><span class="line">white-space: nowrap; // 设置文字在一行显示不能换行</span><br></pre></td></tr></table></figure></p>
-<p>white-space属性属性指定元素内的空白怎样处理。有四个值可选<br>| 值 | 描述|<br>|:-: | :-: |<br>| normal | 默认。空白会被浏览器忽略。<br>| pre | 空白会被浏览器保留。其行为方式类似 HTML 中的 <pre> 标签。<br>| nowrap |     文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。<br>| pre-wrap | 保留空白符序列，但是正常地进行换行。<br>| pre-line |     合并空白符序列，但是保留换行符。<br>| inherit | 规定应该从父元素继承 white-space 属性的值。<br>text-overflow属性规定当文本溢出包含元素时发生的事情。<br>| 值 | 描述|<br>|:-: | :-: |<br>| clip |     修剪文本。<br>| ellipsis |     显示省略符号来代表被修剪的文本。<br>| string |     使用给定的字符串来代表被修剪的文本。</pre></p>
-<h2 id="多行文字省略"><a href="#多行文字省略" class="headerlink" title="多行文字省略"></a>多行文字省略</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">two-line &#123;</span><br><span class="line">  text-overflow: ellipsis;</span><br><span class="line">  display: -webkit-box;</span><br><span class="line">  -webkit-line-clamp: 2; // 限制块元素显示的文本的行数</span><br><span class="line">  -webkit-box-orient: vertical;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line">适用范围：</span><br><span class="line">  因使用了WebKit的CSS扩展属性，该方法适用于WebKit浏览器及移动端；</span><br><span class="line">  注：</span><br><span class="line">  -webkit-line-clamp用来限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他的WebKit属性。常见结合属性：</span><br><span class="line">  display: -webkit-box; 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。</span><br><span class="line">  -webkit-box-orient 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。</span><br></pre></td></tr></table></figure>
+<p>white-space属性属性指定元素内的空白怎样处理。有四个值可选</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">值</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">normal</td>
+<td style="text-align:center">默认。空白会被浏览器忽略。</td>
+</tr>
+<tr>
+<td style="text-align:center">pre</td>
+<td style="text-align:center">空白会被浏览器保留。其行为方式类似 HTML 中的<code>&lt;pre&gt;</code>标签。</td>
+</tr>
+<tr>
+<td style="text-align:center">nowrap</td>
+<td style="text-align:center">文本不会换行，文本会在在同一行上继续，直到遇到<code>&lt;br&gt;</code>标签为止。</td>
+</tr>
+<tr>
+<td style="text-align:center">pre-wrap</td>
+<td style="text-align:center">保留空白符序列，但是正常地进行换行。</td>
+</tr>
+<tr>
+<td style="text-align:center">pre-line</td>
+<td style="text-align:center">合并空白符序列，但是保留换行符。</td>
+</tr>
+<tr>
+<td style="text-align:center">inherit</td>
+<td style="text-align:center">规定应该从父元素继承 white-space 属性的值。</td>
+</tr>
+</tbody>
+</table>
+<p>text-overflow属性规定当文本溢出包含元素时发生的事情。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">值</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">clip</td>
+<td style="text-align:center">修剪文本。</td>
+</tr>
+<tr>
+<td style="text-align:center">ellipsis</td>
+<td style="text-align:center">显示省略符号来代表被修剪的文本。</td>
+</tr>
+<tr>
+<td style="text-align:center">string</td>
+<td style="text-align:center">使用给定的字符串来代表被修剪的文本。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="多行文字省略"><a href="#多行文字省略" class="headerlink" title="多行文字省略"></a>多行文字省略</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">two-line &#123;</span><br><span class="line">  text-overflow: ellipsis;</span><br><span class="line">  display: -webkit-box;</span><br><span class="line">  -webkit-line-clamp: 2; // 限制块元素显示的文本的行数</span><br><span class="line">  -webkit-box-orient: vertical;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>适用范围：<br>  因使用了WebKit的CSS扩展属性，该方法适用于WebKit浏览器及移动端；<br>  注：<br>  -webkit-line-clamp用来限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他的WebKit属性。常见结合属性：<br>  display: -webkit-box; 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。<br>  -webkit-box-orient 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。</p>
 <h2 id="单行文字居中"><a href="#单行文字居中" class="headerlink" title="单行文字居中"></a>单行文字居中</h2><p>单行文字居中用到的属性是<code>text-align: center;</code><br>当要上下居中时设置行高即可，<code>line-height</code>属性。</p>
 <h2 id="多行文字上下左右居中"><a href="#多行文字上下左右居中" class="headerlink" title="多行文字上下左右居中"></a>多行文字上下左右居中</h2><p>多行文字上下左右居中用到了盒子的flex布局。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">display: flex;</span><br><span class="line">align-items: center; // 弹性盒子元素在该行的侧轴（纵轴）上居中放置</span><br><span class="line">justify-content: center; // 项目位于容器的中心</span><br></pre></td></tr></table></figure></p>
 
@@ -1522,299 +1909,6 @@ arr1.sort(compare(&apos;age&apos;));
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/07/Vue-keepAlive-状态保持/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ricesgui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/07/Vue-keepAlive-状态保持/" itemprop="url">Vue keepAlive 状态保持</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-07T09:18:51+08:00">
-                2019-08-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/08/07/Vue-keepAlive-状态保持/" class="leancloud_visitors" data-flag-title="Vue keepAlive 状态保持">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在项目中有表单提交的时候，用户一般填了数据之后返回上一个页面再进入时不希望已填数据丢失，这时候就需要对页面进行状态保持。</p>
-<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p>主要实现原理，状态保持的路由不会执行生命周期的钩子函数，只有第一次进入页面会执行钩子函数。<br>actived :这也是一个钩子函数，keepAlive状态保持的页面中生命周期的钩子函数不会触发，但是会触发actived钩子函数，那么这样可操作性就很大了。</p>
-<h2 id="具体实现代码"><a href="#具体实现代码" class="headerlink" title="具体实现代码"></a>具体实现代码</h2><pre><code>App.vue文件
-&lt;template&gt;
-  &lt;div id=&quot;app&quot;&gt;
-    &lt;keep-alive&gt;
-      &lt;router-view v-if=&quot;$route.meta.keepAlive&quot; /&gt;
-    &lt;/keep-alive&gt;
-    &lt;router-view v-if=&quot;!$route.meta.keepAlive&quot; /&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-
-Router文件夹下定义路由的文件index.js
-export const reserverRoom = {
-  name: &apos;reserverRoom&apos;,
-  path: &apos;reserverRoom&apos;,
-  component: createAsyncComponent(() =&gt; import(&apos;自己的文件路径&apos;)),
-  meta: {
-    title: &apos;预订会议室&apos;,
-    keepaAlive: true,
-    isBack: false,
-    firstTime: true,
-  }
-}
-</code></pre><p>这样就可以对某一个页面进行状态保持了，而不用对所有页面都状态保持。</p>
-<h2 id="actived和created的区别"><a href="#actived和created的区别" class="headerlink" title="actived和created的区别"></a>actived和created的区别</h2><p>created()：在创建vue对象时，当html渲染之前就触发；但是注意，全局vue.js不强制刷新或者重启时只创建一次，也就是说，created()只会触发一次；</p>
-<p>activated()：在vue对象存活的情况下，进入当前存在activated()函数的页面时，一进入页面就触发；可用于初始化页面数据等。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/24/将密码加密后传输md5和base64方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ricesgui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/24/将密码加密后传输md5和base64方法/" itemprop="url">将密码加密后传输md5和base64方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-24T10:38:08+08:00">
-                2019-07-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/07/24/将密码加密后传输md5和base64方法/" class="leancloud_visitors" data-flag-title="将密码加密后传输md5和base64方法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p></p><h1>前言</h1><br>最近在用vue+vux+es6+webpack搭建一个简单的移动端会议室预订系统，在做登录页面的时候遇到要将密码加密成md5格式。这里做一个简单的记录。<p></p>
-<p></p><h1>md5散列</h1><br>根据官方文档<a href="https://doc.vux.li/zh-CN/tools/md5.html" title="Vux官方文档" target="_blank" rel="noopener">https://doc.vux.li/zh-CN/tools/md5.html</a> 里面标注，直接在你用到相关的函数的时候引入即可。<p></p>
-<pre><code>用法： import { md5 } from &apos;vux&apos;;
-      md5(&apos;password&apos;);
-</code></pre><p></p><h1>base64</h1><br>同理，直接引入即可。可以进行加解密操作。<p></p>
-<pre><code>import { base64 } from &apos;vux&apos;
-base64.encode(&apos;VUX&apos;)
-base64.decode(&apos;VlVY&apos;)
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1865,7 +1959,7 @@ base64.decode(&apos;VlVY&apos;)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1887,7 +1981,7 @@ base64.decode(&apos;VlVY&apos;)
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

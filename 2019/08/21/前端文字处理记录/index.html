@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="前端," />
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="前言做前端的展示除了交互，图片展示还有一些文字展示，文字的多寡有的时候是我们预想不到的，所以这里整理一些关于文字展示可能用到的知识点。 单行文字省略只有块状元素才可以设置省略，而且我们需要设置它的宽度。123overflow: hidden;text-overflow: ellipsis; // 规定当文本溢出时显示省略符号来代表被修剪的文本white-space: nowrap; // 设置文字">
+<meta name="keywords" content="前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端文字处理记录">
 <meta property="og:url" content="http://yoursite.com/2019/08/21/前端文字处理记录/index.html">
 <meta property="og:site_name" content="Ricesgui">
 <meta property="og:description" content="前言做前端的展示除了交互，图片展示还有一些文字展示，文字的多寡有的时候是我们预想不到的，所以这里整理一些关于文字展示可能用到的知识点。 单行文字省略只有块状元素才可以设置省略，而且我们需要设置它的宽度。123overflow: hidden;text-overflow: ellipsis; // 规定当文本溢出时显示省略符号来代表被修剪的文本white-space: nowrap; // 设置文字">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-22T03:03:31.640Z">
+<meta property="og:updated_time" content="2019-09-04T01:57:54.596Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端文字处理记录">
 <meta name="twitter:description" content="前言做前端的展示除了交互，图片展示还有一些文字展示，文字的多寡有的时候是我们预想不到的，所以这里整理一些关于文字展示可能用到的知识点。 单行文字省略只有块状元素才可以设置省略，而且我们需要设置它的宽度。123overflow: hidden;text-overflow: ellipsis; // 规定当文本溢出时显示省略符号来代表被修剪的文本white-space: nowrap; // 设置文字">
@@ -356,8 +357,66 @@
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>做前端的展示除了交互，图片展示还有一些文字展示，文字的多寡有的时候是我们预想不到的，所以这里整理一些关于文字展示可能用到的知识点。</p>
 <h2 id="单行文字省略"><a href="#单行文字省略" class="headerlink" title="单行文字省略"></a>单行文字省略</h2><p>只有块状元素才可以设置省略，而且我们需要设置它的宽度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">overflow: hidden;</span><br><span class="line">text-overflow: ellipsis; // 规定当文本溢出时显示省略符号来代表被修剪的文本</span><br><span class="line">white-space: nowrap; // 设置文字在一行显示不能换行</span><br></pre></td></tr></table></figure></p>
-<p>white-space属性属性指定元素内的空白怎样处理。有四个值可选<br>| 值 | 描述|<br>|:-: | :-: |<br>| normal | 默认。空白会被浏览器忽略。<br>| pre | 空白会被浏览器保留。其行为方式类似 HTML 中的 <pre> 标签。<br>| nowrap |     文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。<br>| pre-wrap | 保留空白符序列，但是正常地进行换行。<br>| pre-line |     合并空白符序列，但是保留换行符。<br>| inherit | 规定应该从父元素继承 white-space 属性的值。<br>text-overflow属性规定当文本溢出包含元素时发生的事情。<br>| 值 | 描述|<br>|:-: | :-: |<br>| clip |     修剪文本。<br>| ellipsis |     显示省略符号来代表被修剪的文本。<br>| string |     使用给定的字符串来代表被修剪的文本。</pre></p>
-<h2 id="多行文字省略"><a href="#多行文字省略" class="headerlink" title="多行文字省略"></a>多行文字省略</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">two-line &#123;</span><br><span class="line">  text-overflow: ellipsis;</span><br><span class="line">  display: -webkit-box;</span><br><span class="line">  -webkit-line-clamp: 2; // 限制块元素显示的文本的行数</span><br><span class="line">  -webkit-box-orient: vertical;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line">适用范围：</span><br><span class="line">  因使用了WebKit的CSS扩展属性，该方法适用于WebKit浏览器及移动端；</span><br><span class="line">  注：</span><br><span class="line">  -webkit-line-clamp用来限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他的WebKit属性。常见结合属性：</span><br><span class="line">  display: -webkit-box; 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。</span><br><span class="line">  -webkit-box-orient 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。</span><br></pre></td></tr></table></figure>
+<p>white-space属性属性指定元素内的空白怎样处理。有四个值可选</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">值</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">normal</td>
+<td style="text-align:center">默认。空白会被浏览器忽略。</td>
+</tr>
+<tr>
+<td style="text-align:center">pre</td>
+<td style="text-align:center">空白会被浏览器保留。其行为方式类似 HTML 中的<code>&lt;pre&gt;</code>标签。</td>
+</tr>
+<tr>
+<td style="text-align:center">nowrap</td>
+<td style="text-align:center">文本不会换行，文本会在在同一行上继续，直到遇到<code>&lt;br&gt;</code>标签为止。</td>
+</tr>
+<tr>
+<td style="text-align:center">pre-wrap</td>
+<td style="text-align:center">保留空白符序列，但是正常地进行换行。</td>
+</tr>
+<tr>
+<td style="text-align:center">pre-line</td>
+<td style="text-align:center">合并空白符序列，但是保留换行符。</td>
+</tr>
+<tr>
+<td style="text-align:center">inherit</td>
+<td style="text-align:center">规定应该从父元素继承 white-space 属性的值。</td>
+</tr>
+</tbody>
+</table>
+<p>text-overflow属性规定当文本溢出包含元素时发生的事情。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">值</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">clip</td>
+<td style="text-align:center">修剪文本。</td>
+</tr>
+<tr>
+<td style="text-align:center">ellipsis</td>
+<td style="text-align:center">显示省略符号来代表被修剪的文本。</td>
+</tr>
+<tr>
+<td style="text-align:center">string</td>
+<td style="text-align:center">使用给定的字符串来代表被修剪的文本。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="多行文字省略"><a href="#多行文字省略" class="headerlink" title="多行文字省略"></a>多行文字省略</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">two-line &#123;</span><br><span class="line">  text-overflow: ellipsis;</span><br><span class="line">  display: -webkit-box;</span><br><span class="line">  -webkit-line-clamp: 2; // 限制块元素显示的文本的行数</span><br><span class="line">  -webkit-box-orient: vertical;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>适用范围：<br>  因使用了WebKit的CSS扩展属性，该方法适用于WebKit浏览器及移动端；<br>  注：<br>  -webkit-line-clamp用来限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他的WebKit属性。常见结合属性：<br>  display: -webkit-box; 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。<br>  -webkit-box-orient 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。</p>
 <h2 id="单行文字居中"><a href="#单行文字居中" class="headerlink" title="单行文字居中"></a>单行文字居中</h2><p>单行文字居中用到的属性是<code>text-align: center;</code><br>当要上下居中时设置行高即可，<code>line-height</code>属性。</p>
 <h2 id="多行文字上下左右居中"><a href="#多行文字上下左右居中" class="headerlink" title="多行文字上下左右居中"></a>多行文字上下左右居中</h2><p>多行文字上下左右居中用到了盒子的flex布局。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">display: flex;</span><br><span class="line">align-items: center; // 弹性盒子元素在该行的侧轴（纵轴）上居中放置</span><br><span class="line">justify-content: center; // 项目位于容器的中心</span><br></pre></td></tr></table></figure></p>
 
@@ -374,6 +433,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
       
 
       
@@ -478,7 +543,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -500,7 +565,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

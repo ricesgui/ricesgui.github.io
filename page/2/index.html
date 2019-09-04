@@ -272,6 +272,299 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/07/Vue-keepAlive-状态保持/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ricesgui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/07/Vue-keepAlive-状态保持/" itemprop="url">Vue keepAlive 状态保持</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-07T09:18:51+08:00">
+                2019-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/08/07/Vue-keepAlive-状态保持/" class="leancloud_visitors" data-flag-title="Vue keepAlive 状态保持">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在项目中有表单提交的时候，用户一般填了数据之后返回上一个页面再进入时不希望已填数据丢失，这时候就需要对页面进行状态保持。</p>
+<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p>主要实现原理，状态保持的路由不会执行生命周期的钩子函数，只有第一次进入页面会执行钩子函数。<br>actived :这也是一个钩子函数，keepAlive状态保持的页面中生命周期的钩子函数不会触发，但是会触发actived钩子函数，那么这样可操作性就很大了。</p>
+<h2 id="具体实现代码"><a href="#具体实现代码" class="headerlink" title="具体实现代码"></a>具体实现代码</h2><pre><code>App.vue文件
+&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;keep-alive&gt;
+      &lt;router-view v-if=&quot;$route.meta.keepAlive&quot; /&gt;
+    &lt;/keep-alive&gt;
+    &lt;router-view v-if=&quot;!$route.meta.keepAlive&quot; /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+Router文件夹下定义路由的文件index.js
+export const reserverRoom = {
+  name: &apos;reserverRoom&apos;,
+  path: &apos;reserverRoom&apos;,
+  component: createAsyncComponent(() =&gt; import(&apos;自己的文件路径&apos;)),
+  meta: {
+    title: &apos;预订会议室&apos;,
+    keepaAlive: true,
+    isBack: false,
+    firstTime: true,
+  }
+}
+</code></pre><p>这样就可以对某一个页面进行状态保持了，而不用对所有页面都状态保持。</p>
+<h2 id="actived和created的区别"><a href="#actived和created的区别" class="headerlink" title="actived和created的区别"></a>actived和created的区别</h2><p>created()：在创建vue对象时，当html渲染之前就触发；但是注意，全局vue.js不强制刷新或者重启时只创建一次，也就是说，created()只会触发一次；</p>
+<p>activated()：在vue对象存活的情况下，进入当前存在activated()函数的页面时，一进入页面就触发；可用于初始化页面数据等。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/24/将密码加密后传输md5和base64方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ricesgui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ricesgui">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/24/将密码加密后传输md5和base64方法/" itemprop="url">将密码加密后传输md5和base64方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-24T10:38:08+08:00">
+                2019-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/07/24/将密码加密后传输md5和base64方法/" class="leancloud_visitors" data-flag-title="将密码加密后传输md5和base64方法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p></p><h1>前言</h1><br>最近在用vue+vux+es6+webpack搭建一个简单的移动端会议室预订系统，在做登录页面的时候遇到要将密码加密成md5格式。这里做一个简单的记录。<p></p>
+<p></p><h1>md5散列</h1><br>根据官方文档<a href="https://doc.vux.li/zh-CN/tools/md5.html" title="Vux官方文档" target="_blank" rel="noopener">https://doc.vux.li/zh-CN/tools/md5.html</a> 里面标注，直接在你用到相关的函数的时候引入即可。<p></p>
+<pre><code>用法： import { md5 } from &apos;vux&apos;;
+      md5(&apos;password&apos;);
+</code></pre><p></p><h1>base64</h1><br>同理，直接引入即可。可以进行加解密操作。<p></p>
+<pre><code>import { base64 } from &apos;vux&apos;
+base64.encode(&apos;VUX&apos;)
+base64.decode(&apos;VlVY&apos;)
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/09/call和apply之间的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1450,323 +1743,6 @@ watch: {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/19/form表单回车提交查询多个问号/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ricesgui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/19/form表单回车提交查询多个问号/" itemprop="url">form表单回车提交查询多个问号</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-19T19:36:06+08:00">
-                2018-11-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/11/19/form表单回车提交查询多个问号/" class="leancloud_visitors" data-flag-title="form表单回车提交查询多个问号">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近测试提交了一份报告，当回车的时候页面刷新，并且导航栏多出个问号。<br><img src="https://i.imgur.com/VBoMPQk.png" alt=""></p>
-<p>找遍自己写的代码仍然没有找到问题，因为我本身对enter键也进行了处理的。<br>代码如下</p>
-<pre><code>&lt;el-form :inline=&quot;true&quot; class=&quot;searchForms searchCommon&quot; @submit.native.prevent&gt;    
-    &lt;el-form-item label=&quot;关键字&quot; class=&quot;keyword&quot;&gt;
-      &lt;el-input v-model=&quot;keyword&quot; clearable placeholder=&quot;输入编号或名称&quot; style=&quot;width: 140px;&quot; @keyup.enter.native=&quot;handelEnter&quot;&gt;&lt;/el-input&gt;
-    &lt;/el-form-item&gt;
-    &lt;el-form-item&gt;
-      &lt;el-button type=&quot;primary&quot; icon=&quot;search&quot; :loading=&quot;isQuery&quot; @click=&quot;searchHandler&quot;&gt;查询&lt;/el-button&gt;
-    &lt;/el-form-item&gt;
-  &lt;/el-form&gt;
-</code></pre><p>最后发现一个结论。所以我们需要对原生的form表单提交进行处理，@submit.native.prevent</p>
-<p>结论：当表单中只有一个input输入元素时，点击enter键，form表单会自动提交。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/15/动态使用绑定图片源展示base64格式的图片/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ricesgui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ricesgui">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/15/动态使用绑定图片源展示base64格式的图片/" itemprop="url">动态使用绑定图片源展示base64格式的图片</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T22:50:11+08:00">
-                2018-11-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/11/15/动态使用绑定图片源展示base64格式的图片/" class="leancloud_visitors" data-flag-title="动态使用绑定图片源展示base64格式的图片">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1>前言</h1>
-
-<p>用户上传图片，利用后端返回的数据实现图片展示，<br>实现效果：</p>
-<p><img src="https://i.imgur.com/9uMFvK6.png" alt=""><br><img src="https://i.imgur.com/bUVawwe.png" alt=""></p>
-<p>实现代码:</p>
-<pre><code>&lt;el-form-item label=&quot;印章:&quot; prop=&quot;imgFile&quot;&gt;
-   &lt;el-upload
-     class=&quot;upload-demo&quot;
-      drag
-      v-model=&quot;addForm.imgFile&quot;
-      action=&quot;&quot;
-      :before-upload=&quot;handleBeforeUpload&quot;
-      :http-request=&quot;handleUpload&quot;         
-      accept=&quot;.jpg,.png&quot;
-      multiple&gt;
-      &lt;i class=&quot;el-icon-upload&quot;&gt;&lt;/i&gt;
-      &lt;div class=&quot;el-upload__text&quot;&gt;将文件拖到此处，或&lt;em&gt;点击上传&lt;/em&gt;&lt;/div&gt;
-      &lt;div class=&quot;el-upload__tip&quot; slot=&quot;tip&quot;&gt;只能上传jpg/png文件，且不超过2kb&lt;/div&gt;
-    &lt;/el-upload&gt;         
-  &lt;/el-form-item&gt;
-
- &lt;div v-if=&quot;item.prop === &apos;images&apos; &amp;&amp; scope.row[item.prop] !== null&quot;&gt;
-    &lt;img :src=&quot;&apos;data:image/jpg;base64,&apos; + scope.row[item.prop]&quot; alt=&quot;印章&quot;&gt;              
- &lt;/div&gt;
- &lt;span v-else&gt;{{ scope.row[item.prop] }}&lt;/span&gt;
-
-&lt;script&gt;
-data () {
-    return{
-    addForm: {
-        imgFile: &apos;&apos;
-    }
-},
-
-handleBeforeUpload (file) {
-      if (file.size &gt; 2 * 1024) {
-        this.$message({
-          type: &apos;warning&apos;,
-          message: &apos;选择文件过大啦~~&apos;
-        })
-        return false
-      }
-    },
-handleUpload (data) {
-  this.addForm.imgFile = data.file
-}
-&lt;/script&gt;
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1817,7 +1793,7 @@ handleUpload (data) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1839,7 +1815,7 @@ handleUpload (data) {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
